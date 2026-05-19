@@ -3,5 +3,4 @@
   <rect x="24" y="36" width="52" height="88" rx="8" fill="#161b22" stroke="#6d28d9" stroke-width="2" opacity="0.7"/>
   <polygon points="40,58 40,102 68,80" fill="#3fa46a"/>
   <path d="M88 52h40M88 72h32M88 92h36M88 112h28" stroke="#2e8b57" stroke-width="4" stroke-linecap="round"/>
-  <circle cx="118" cy="40" r="10" fill="#6d28d9" opacity="0.85"/>
 </svg>

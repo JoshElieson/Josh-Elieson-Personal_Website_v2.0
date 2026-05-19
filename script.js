@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
     light: '#f6f4ef',
   };
 
-  const setTheme = (theme) => {
+  const setTheme = (theme, { persist = true } = {}) => {
     if (!themeVeil || body.classList.contains('is-theme-switching')) return;
 
     body.classList.add('is-theme-switching');
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
     body.classList.add('theme-snap');
     body.classList.remove('light', 'dark');
     body.classList.add(theme);
-    localStorage.setItem('portfolio-theme', theme);
+    if (persist) localStorage.setItem('portfolio-theme', theme);
 
     requestAnimationFrame(() => {
       themeVeil.classList.remove('is-instant');
@@ -141,6 +141,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  const systemThemeQuery = window.matchMedia('(prefers-color-scheme: light)');
+  systemThemeQuery.addEventListener('change', (event) => {
+    if (localStorage.getItem('portfolio-theme')) return;
+    setTheme(event.matches ? 'light' : 'dark', { persist: false });
+  });
+
   const displayList = () => {
     const navUl = document.querySelector('.nav__list');
 
@@ -153,20 +159,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (btnHamburger) {
     btnHamburger.addEventListener('click', displayList);
   }
-
-  const scrollUp = () => {
-    const btnScrollTop = document.querySelector('.scroll-top');
-
-    if (!btnScrollTop) return;
-
-    if (document.documentElement.scrollTop > 500) {
-      btnScrollTop.style.display = 'block';
-    } else {
-      btnScrollTop.style.display = 'none';
-    }
-  };
-
-  document.addEventListener('scroll', scrollUp);
 
   const initCursorProximity = () => {
     if (prefersReducedMotion || !window.matchMedia('(pointer: fine)').matches) return;
@@ -232,5 +224,45 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('mouseleave', clearProximity);
   };
 
+  const initProjectHeaderLinks = () => {
+    document.querySelectorAll('.project').forEach((project) => {
+      const header = project.querySelector('.project__header');
+      const iconLinks = project.querySelectorAll('.project__links a.link--icon');
+      if (!header || !iconLinks.length) return;
+
+      let siteUrl = null;
+      let githubUrl = null;
+
+      iconLinks.forEach((anchor) => {
+        if (anchor.querySelector('.github-icon')) {
+          githubUrl = anchor.href;
+        } else {
+          siteUrl = anchor.href;
+        }
+      });
+
+      const url = siteUrl || githubUrl;
+      if (!url) return;
+
+      const title = header.querySelector('h3');
+      const headerLink = document.createElement('a');
+      headerLink.href = url;
+      headerLink.className = 'project__header-link';
+      headerLink.target = '_blank';
+      headerLink.rel = 'noopener noreferrer';
+      if (title) {
+        headerLink.setAttribute('aria-label', title.textContent.trim());
+      }
+
+      const description = project.querySelector('.project__description');
+      header.replaceWith(headerLink);
+      headerLink.appendChild(header);
+      if (description) {
+        headerLink.appendChild(description);
+      }
+    });
+  };
+
+  initProjectHeaderLinks();
   initCursorProximity();
 });

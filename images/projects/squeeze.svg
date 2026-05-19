@@ -1,10 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="Image compression preview">
   <rect width="160" height="160" rx="12" fill="#111418"/>
-  <rect x="28" y="40" width="64" height="48" rx="6" fill="#2e8b57" opacity="0.25" stroke="#3fa46a"/>
-  <circle cx="48" cy="58" r="8" fill="#3fa46a" opacity="0.6"/>
-  <path d="M28 82l20-16 14 12 18-22 24 26" fill="none" stroke="#6ee7b7" stroke-width="2"/>
-  <path d="M108 48 L132 48 M120 36 L120 60" stroke="#3fa46a" stroke-width="4" stroke-linecap="round"/>
-  <rect x="100" y="72" width="36" height="48" rx="6" fill="#161b22" stroke="rgba(255,255,255,0.08)"/>
-  <rect x="108" y="84" width="20" height="6" rx="2" fill="#3fa46a"/>
-  <rect x="108" y="96" width="14" height="6" rx="2" fill="#2e8b57" opacity="0.6"/>
+  <rect x="16" y="40" width="68" height="60" rx="8" fill="#161b22" stroke="#3fa46a" stroke-width="1.5"/>
+  <circle cx="34" cy="58" r="6" fill="#3fa46a" opacity="0.6"/>
+  <path
+    d="M24 92L38 78 50 86 62 72 76 90"
+    fill="none"
+    stroke="#6ee7b7"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M92 72h16M102 66l8 6-8 6"
+    fill="none"
+    stroke="#3fa46a"
+    stroke-width="2.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <rect x="116" y="56" width="32" height="28" rx="6" fill="#161b22" stroke="#6ee7b7" stroke-width="1.5"/>
+  <circle cx="126" cy="66" r="3.5" fill="#3fa46a" opacity="0.6"/>
+  <path
+    d="M122 80L128 74 132 78 136 72 142 80"
+    fill="none"
+    stroke="#6ee7b7"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
 </svg>
