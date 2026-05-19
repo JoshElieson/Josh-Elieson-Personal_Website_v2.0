@@ -3,10 +3,8 @@
 [View Site](joshelieson.com)
 
 My personal portfolio website - includes:
-Projects
 
-Experience
-
-Skills
-
+Projects<br>
+Experience<br>
+Skills<br>
 Contact
