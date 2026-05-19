@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="LiDAR visualization preview">
+  <rect width="160" height="160" rx="12" fill="#111418"/>
+  <g fill="#3fa46a" opacity="0.85">
+    <circle cx="48" cy="98" r="2"/><circle cx="62" cy="86" r="2"/><circle cx="76" cy="104" r="2"/>
+    <circle cx="88" cy="72" r="2"/><circle cx="102" cy="90" r="2"/><circle cx="114" cy="78" r="2"/>
+    <circle cx="54" cy="72" r="2"/><circle cx="70" cy="110" r="2"/><circle cx="96" cy="96" r="2"/>
+    <circle cx="108" cy="108" r="2"/><circle cx="120" cy="64" r="2"/><circle cx="40" cy="84" r="2"/>
+  </g>
+  <path d="M80 120 L80 48 M80 48 L56 64 M80 48 L104 64" stroke="#2e8b57" stroke-width="2" opacity="0.6"/>
+  <ellipse cx="80" cy="120" rx="36" ry="10" fill="none" stroke="#6d28d9" stroke-width="2" opacity="0.5"/>
+</svg>
