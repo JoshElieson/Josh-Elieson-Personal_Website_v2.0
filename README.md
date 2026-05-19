@@ -2,8 +2,8 @@
 
 [View Site](joshelieson.com)
 
-# My personal portfolio website - includes:
-Projects
-Experience
-Skills
+My personal portfolio website - includes:
+Projects--
+Experience--
+Skills--
 Contact
