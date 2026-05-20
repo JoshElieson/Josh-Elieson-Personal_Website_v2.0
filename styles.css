@@ -1253,6 +1253,18 @@ body.dark .skills__list-item:focus-visible {
     margin-top: 0.8em;
   }
 
+  .project__stack-item--resumeai-openai {
+    order: 2;
+  }
+
+  .project__stack-item--excel-docker {
+    order: 4;
+  }
+
+  .project__stack-item--spotify-oauth {
+    order: 2;
+  }
+
   .project__image {
     width: 4rem;
     height: 4rem;
