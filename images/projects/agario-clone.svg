@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="Agar.io clone preview">
-  <rect width="160" height="160" rx="12" fill="#111418"/>
-  <circle cx="80" cy="80" r="52" fill="#161b22" stroke="rgba(255,255,255,0.08)"/>
-  <circle cx="58" cy="70" r="22" fill="#3fa46a" opacity="0.9"/>
-  <circle cx="98" cy="88" r="14" fill="#6ee7b7" opacity="0.75"/>
-  <circle cx="72" cy="98" r="8" fill="#2e8b57"/>
-  <circle cx="108" cy="62" r="6" fill="#6d28d9" opacity="0.8"/>
-</svg>

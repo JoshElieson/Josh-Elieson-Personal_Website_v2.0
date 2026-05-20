@@ -894,7 +894,9 @@ body.dark main .section__title {
 }
 
 .project {
-  padding: 1.5em 1.5em;
+  position: relative;
+  overflow: visible;
+  padding: 1.5em 1.5em 3.25em;
   margin: 0 auto;
   width: 100%;
   text-align: left;
@@ -1060,12 +1062,15 @@ body.light .project:hover .project__stack-item {
 }
 
 .project__links {
+  position: absolute;
+  bottom: 1.5em;
+  left: 1.5em;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-start;
-  gap: 0.35em 0.5em;
-  margin-top: 0.15em;
+  gap: 0.5em;
+  margin: 0;
 }
 
 .project__links .link--icon-text {
@@ -1076,6 +1081,7 @@ body.light .project:hover .project__stack-item {
 }
 
 .project__links .link.link--icon {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1084,6 +1090,12 @@ body.light .project:hover .project__stack-item {
   min-width: 24px;
   min-height: 24px;
   vertical-align: middle;
+  overflow: visible;
+}
+
+.project__links .link.link--icon::before {
+  bottom: 0;
+  left: 0;
 }
 
 .skills__list {
