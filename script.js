@@ -141,12 +141,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const systemThemeQuery = window.matchMedia('(prefers-color-scheme: light)');
-  systemThemeQuery.addEventListener('change', (event) => {
-    if (localStorage.getItem('portfolio-theme')) return;
-    setTheme(event.matches ? 'light' : 'dark', { persist: false });
-  });
-
   const displayList = () => {
     const navUl = document.querySelector('.nav__list');
 

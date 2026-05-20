@@ -1213,6 +1213,29 @@ body.dark .skills__list-item:focus-visible {
 }
 
 @media (max-width: 600px) {
+  .projects__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .project {
+    padding: 1.1em 1.1em 2.9em;
+  }
+
+  .project__description,
+  .project__header-link .project__description {
+    display: none;
+  }
+
+  .project__body {
+    margin-top: 0.85em;
+  }
+
+  .project__image {
+    width: 4rem;
+    height: 4rem;
+  }
+
   .header {
     height: 6em;
   }
@@ -1251,8 +1274,42 @@ body.dark .skills__list-item:focus-visible {
   }
 
   .about {
-    align-items: flex-start;
+    align-items: center;
     margin-top: 2em;
+    text-align: center;
+  }
+
+  .about h1,
+  .about__role {
+    width: 100%;
+    text-align: center;
+  }
+
+  .about__name {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .about__name:focus,
+  .about__name:focus-visible,
+  .about__name:active {
+    outline: none;
+    box-shadow: none;
+  }
+
+  .about__portrait {
+    width: 14rem;
+    margin-top: 1rem;
+  }
+
+  .about__contact {
+    width: 100%;
+    justify-content: center;
+    gap: 0.8rem;
+  }
+
+  .about .btn--outline,
+  .about .link--icon {
+    margin-right: 0;
   }
 
   .footer {
