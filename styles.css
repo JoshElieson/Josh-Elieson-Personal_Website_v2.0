@@ -1231,6 +1231,28 @@ body.dark .skills__list-item:focus-visible {
     margin-top: 0.85em;
   }
 
+  .project__header,
+  .project__header-link .project__header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.65rem;
+  }
+
+  .project__header h3,
+  .project__header-link h3 {
+    font-size: 0.9rem;
+    line-height: 1.3;
+    text-align: center;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .project__stack {
+    justify-content: center;
+    margin-top: 0.8em;
+  }
+
   .project__image {
     width: 4rem;
     height: 4rem;
@@ -1298,6 +1320,8 @@ body.dark .skills__list-item:focus-visible {
 
   .about__portrait {
     width: 14rem;
+    height: 14rem;
+    aspect-ratio: 1 / 1;
     margin-top: 1rem;
   }
 
