@@ -1098,6 +1098,78 @@ body.light .project:hover .project__stack-item {
   left: 0;
 }
 
+.project__notes {
+  position: relative;
+  display: inline-flex;
+}
+
+.project__notes-trigger {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  margin: 0;
+  font: inherit;
+}
+
+.project__notes-popup {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 0.65rem);
+  transform: translate(0, 0.35rem);
+  width: min(20.5rem, calc(100vw - 3.5rem));
+  padding: 0.75rem 0.85rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.3),
+    0 1px 0 rgba(255, 255, 255, 0.04) inset;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s ease;
+  z-index: 10;
+}
+
+body.light .project__notes-popup {
+  box-shadow:
+    0 16px 32px rgba(34, 51, 84, 0.16),
+    0 1px 0 rgba(255, 255, 255, 0.75) inset;
+}
+
+.project__notes.is-open .project__notes-popup {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate(0, 0);
+}
+
+.project__notes-title {
+  margin: 0;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--accent-bright);
+}
+
+.project__notes-list {
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.38rem;
+}
+
+.project__notes-list li {
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+
 .skills__list {
   max-width: 520px;
   width: 95%;

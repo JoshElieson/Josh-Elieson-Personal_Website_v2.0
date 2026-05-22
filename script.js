@@ -257,6 +257,61 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
+  const initProjectNotesPopups = () => {
+    const noteGroups = [...document.querySelectorAll('.project__notes')];
+    if (!noteGroups.length) return;
+
+    let openGroup = null;
+
+    const closeGroup = (group) => {
+      if (!group) return;
+      const trigger = group.querySelector('.project__notes-trigger');
+      const popup = group.querySelector('.project__notes-popup');
+      if (!trigger || !popup) return;
+      group.classList.remove('is-open');
+      trigger.setAttribute('aria-expanded', 'false');
+      popup.hidden = true;
+      if (openGroup === group) openGroup = null;
+    };
+
+    const openGroupPopup = (group) => {
+      const trigger = group.querySelector('.project__notes-trigger');
+      const popup = group.querySelector('.project__notes-popup');
+      if (!trigger || !popup) return;
+      if (openGroup && openGroup !== group) closeGroup(openGroup);
+      group.classList.add('is-open');
+      trigger.setAttribute('aria-expanded', 'true');
+      popup.hidden = false;
+      openGroup = group;
+    };
+
+    noteGroups.forEach((group) => {
+      const trigger = group.querySelector('.project__notes-trigger');
+      const popup = group.querySelector('.project__notes-popup');
+      if (!trigger || !popup) return;
+
+      popup.hidden = true;
+
+      trigger.addEventListener('click', (event) => {
+        event.stopPropagation();
+        if (group.classList.contains('is-open')) {
+          closeGroup(group);
+          return;
+        }
+        openGroupPopup(group);
+      });
+
+      popup.addEventListener('click', (event) => event.stopPropagation());
+    });
+
+    document.addEventListener('click', () => closeGroup(openGroup));
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeGroup(openGroup);
+    });
+  };
+
   initProjectHeaderLinks();
+  initProjectNotesPopups();
   initCursorProximity();
 });
