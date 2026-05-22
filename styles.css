@@ -989,13 +989,6 @@ body.light .project__header-link:focus-visible h3 {
   background-color: var(--bg-secondary);
 }
 
-.project__image--spotify {
-  box-sizing: border-box;
-  object-fit: contain;
-  background-color: #000;
-  padding: 22%;
-}
-
 .project__header h3,
 .project__header-link h3 {
   margin: 0;
