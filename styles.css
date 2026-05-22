@@ -1497,6 +1497,13 @@ body.light .theme-icon--sun {
   transform: rotate(-12deg);
 }
 
+/* Keep the theme toggle icon-only (no square background flash) */
+.btn-theme:hover,
+.btn-theme:focus-visible,
+.btn-theme:active {
+  background-color: transparent;
+}
+
 /*===================
   experience section
 ===================*/
