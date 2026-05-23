@@ -910,6 +910,13 @@ body.dark main .section__title {
     box-shadow 0.2s ease;
 }
 
+.project.has-notes-open,
+.project:has(.project__notes.is-open),
+.project:has(.project__notes:hover),
+.project:has(.project__notes:focus-within) {
+  z-index: 50;
+}
+
 .project:hover {
   transform: translateY(-4px);
   background-color: var(--bg-hover);
@@ -1101,6 +1108,15 @@ body.light .project:hover .project__stack-item {
 .project__notes {
   position: relative;
   display: inline-flex;
+}
+
+.project__notes::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  height: 0.65rem;
 }
 
 .project__notes-trigger {
@@ -1331,10 +1347,6 @@ body.dark .skills__list-item:focus-visible {
 
   .project__stack-item--excel-docker {
     order: 4;
-  }
-
-  .project__stack-item--spotify-oauth {
-    order: 2;
   }
 
   .project__image {

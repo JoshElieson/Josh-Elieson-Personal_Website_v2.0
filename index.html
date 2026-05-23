@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Josh Elieson â€” Software Engineer portfolio. Projects, skills, and contact."
+      content="Josh Elieson — Software Engineer portfolio. Projects, skills, and contact."
     />
     <link rel="icon" type="image/png" href="favicon.png" />
     <link rel="apple-touch-icon" href="favicon.png" />
@@ -213,30 +213,32 @@
             <div class="project__header">
               <img
                 class="project__image"
-                src="images/projects/resume-ai.svg"
+                src="images/projects/wikispeedrunning.svg"
                 alt=""
                 width="88"
                 height="88"
                 loading="lazy"
                 decoding="async"
               />
-              <h3>ResumeAI: Intelligent Career Coach</h3>
+              <h3>WikiSpeedrunning.com</h3>
             </div>
             <div class="project__body">
             <p class="project__description">
-              AI-powered resume platform featuring intelligent scoring, ATS-focused feedback, resume
-              comparisons, targeted optimization, scan history tracking, and an integrated career guidance
-              chatbot. Built with Next.js, TypeScript, and OpenAI APIs.
+              Competitive Wikipedia speedrunning platform where users race from a starting article to a
+              target page in the fewest clicks and fastest time. Features ranked Elo, leaderboards, route
+              tracking, match history, and more.
             </p>
             <ul class="project__stack">
               <li class="project__stack-item">Next.js</li>
-              <li class="project__stack-item">TypeScript</li>
-              <li class="project__stack-item project__stack-item--resumeai-openai">OpenAI</li>
+              <li class="project__stack-item">Prisma</li>
+              <li class="project__stack-item">PostgreSQL</li>
+              <li class="project__stack-item">Redis</li>
+              <li class="project__stack-item">Supabase</li>
             </ul>
             <div class="project__links">
             <a
-            href="https://resume-ai-free-resume-coach.vercel.app/"
-            aria-label="ResumeAI live demo"
+            href="https://wikispeedrunning.com/"
+            aria-label="WikiSpeedrunning.com live demo"
             class="link link--icon"
             target="_blank"
             rel="noopener noreferrer"
@@ -253,8 +255,8 @@
             </svg>
             </a>
             <a
-            href="https://github.com/JoshElieson/ResumeAI-Free_Resume_Coach"
-            aria-label="ResumeAI source code"
+            href="https://github.com/JoshElieson/wikirush"
+            aria-label="WikiSpeedrunning.com source code"
             class="link link--icon"
             target="_blank"
             rel="noopener noreferrer"
@@ -274,9 +276,9 @@
               <button
                 type="button"
                 class="project__notes-trigger link link--icon"
-                aria-label="Open ResumeAI technical notes"
+                aria-label="Open WikiSpeedrunning.com technical notes"
                 aria-expanded="false"
-                aria-controls="notes-resumeai"
+                aria-controls="notes-wikispeedrunning"
               >
                 <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
                   <path
@@ -289,12 +291,12 @@
                   />
                 </svg>
               </button>
-              <div id="notes-resumeai" class="project__notes-popup" role="dialog" aria-modal="false" hidden>
+              <div id="notes-wikispeedrunning" class="project__notes-popup" role="dialog" aria-modal="false" hidden>
                 <p class="project__notes-title">Technical notes</p>
                 <ul class="project__notes-list">
-                  <li>Next.js + TypeScript app with server/client rendering split for responsive UX.</li>
-                  <li>OpenAI-backed scoring and rewrite flows tuned for ATS keyword alignment.</li>
-                  <li>Resume scan history persists feedback context for iterative improvements.</li>
+                  <li>Next.js App Router wraps a React 19 + TypeScript Wikipedia speedrun client and API.</li>
+                  <li>Prisma on PostgreSQL persists graph traversals; Redis caches MediaWiki article and link payloads.</li>
+                  <li>Zod-validated moves, Zustand race state, and TanStack Query keep solo runs server-authoritative.</li>
                 </ul>
               </div>
             </div>
@@ -496,31 +498,48 @@
             <div class="project__header">
               <img
                 class="project__image"
-                src="images/projects/ai-media-pipeline.svg"
+                src="images/projects/resume-ai.svg"
                 alt=""
                 width="88"
                 height="88"
                 loading="lazy"
                 decoding="async"
               />
-              <h3>Automated AI Media Translation Pipeline</h3>
+              <h3>ResumeAI: Intelligent Career Coach</h3>
             </div>
             <div class="project__body">
             <p class="project__description">
-              AI-driven pipeline that ingests trending short-form videos, translates captions and
-              on-screen text, generates localized English audio, and automates cross-platform
-              publishing.
+              AI-powered resume platform featuring intelligent scoring, ATS-focused feedback, resume
+              comparisons, targeted optimization, scan history tracking, and an integrated career guidance
+              chatbot. Built with Next.js, TypeScript, and OpenAI APIs.
             </p>
             <ul class="project__stack">
-              <li class="project__stack-item">Python</li>
-              <li class="project__stack-item">AI</li>
-              <li class="project__stack-item">FFmpeg</li>
-              <li class="project__stack-item">REST</li>
+              <li class="project__stack-item">Next.js</li>
+              <li class="project__stack-item">TypeScript</li>
+              <li class="project__stack-item project__stack-item--resumeai-openai">OpenAI</li>
             </ul>
             <div class="project__links">
             <a
-            href="https://github.com/JoshElieson/Automated-Media-Translation"
-            aria-label="Automated AI Media Translation Pipeline source code"
+            href="https://resume-ai-free-resume-coach.vercel.app/"
+            aria-label="ResumeAI live demo"
+            class="link link--icon"
+            target="_blank"
+            rel="noopener noreferrer"
+            >
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path
+            d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6 M15 3h6v6 M10 14L21 3"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            />
+            </svg>
+            </a>
+            <a
+            href="https://github.com/JoshElieson/ResumeAI-Free_Resume_Coach"
+            aria-label="ResumeAI source code"
             class="link link--icon"
             target="_blank"
             rel="noopener noreferrer"
@@ -536,6 +555,34 @@
             />
             </svg>
             </a>
+            <div class="project__notes">
+              <button
+                type="button"
+                class="project__notes-trigger link link--icon"
+                aria-label="Open ResumeAI technical notes"
+                aria-expanded="false"
+                aria-controls="notes-resumeai"
+              >
+                <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+                  <path
+                    d="M7 3h7l5 5v13H7z M14 3v6h6 M10 12h2 M14 12h2 M10 16h2 M14 16h2"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+              <div id="notes-resumeai" class="project__notes-popup" role="dialog" aria-modal="false" hidden>
+                <p class="project__notes-title">Technical notes</p>
+                <ul class="project__notes-list">
+                  <li>Next.js + TypeScript app with server/client rendering split for responsive UX.</li>
+                  <li>OpenAI-backed scoring and rewrite flows tuned for ATS keyword alignment.</li>
+                  <li>Resume scan history persists feedback context for iterative improvements.</li>
+                </ul>
+              </div>
+            </div>
           </div>
             </div>
           </article>
@@ -609,48 +656,31 @@
             <div class="project__header">
               <img
                 class="project__image"
-                src="images/projects/spotify-profile-stats.svg"
+                src="images/projects/ai-media-pipeline.svg"
                 alt=""
                 width="88"
                 height="88"
                 loading="lazy"
                 decoding="async"
               />
-              <h3>Spotify Profile Stats</h3>
+              <h3>Automated AI Media Translation Pipeline</h3>
             </div>
             <div class="project__body">
             <p class="project__description">
-              Web app that connects to the Spotify API and surfaces personalized listening stats and
-              profile insights with OAuth-based authentication.
+              AI-driven pipeline that ingests trending short-form videos, translates captions and
+              on-screen text, generates localized English audio, and automates cross-platform
+              publishing.
             </p>
             <ul class="project__stack">
-              <li class="project__stack-item">React</li>
-              <li class="project__stack-item">TypeScript</li>
-              <li class="project__stack-item">Spotify API</li>
-              <li class="project__stack-item project__stack-item--spotify-oauth">OAuth</li>
+              <li class="project__stack-item">Python</li>
+              <li class="project__stack-item">AI</li>
+              <li class="project__stack-item">FFmpeg</li>
+              <li class="project__stack-item">REST</li>
             </ul>
             <div class="project__links">
             <a
-            href="https://spotify-viewer-v3-0.vercel.app/"
-            aria-label="Spotify Profile Stats live demo"
-            class="link link--icon"
-            target="_blank"
-            rel="noopener noreferrer"
-            >
-            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
-            <path
-            d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6 M15 3h6v6 M10 14L21 3"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            />
-            </svg>
-            </a>
-            <a
-            href="https://github.com/JoshElieson/Spotify-Viewer-v3.0"
-            aria-label="Spotify Profile Stats source code"
+            href="https://github.com/JoshElieson/Automated-Media-Translation"
+            aria-label="Automated AI Media Translation Pipeline source code"
             class="link link--icon"
             target="_blank"
             rel="noopener noreferrer"

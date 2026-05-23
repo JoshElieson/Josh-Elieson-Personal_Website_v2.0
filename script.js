@@ -263,12 +263,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let openGroup = null;
 
+    const getProjectCard = (group) => group.closest('.project');
+
     const closeGroup = (group) => {
       if (!group) return;
       const trigger = group.querySelector('.project__notes-trigger');
       const popup = group.querySelector('.project__notes-popup');
       if (!trigger || !popup) return;
       group.classList.remove('is-open');
+      getProjectCard(group)?.classList.remove('has-notes-open');
       trigger.setAttribute('aria-expanded', 'false');
       popup.hidden = true;
       if (openGroup === group) openGroup = null;
@@ -280,10 +283,13 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!trigger || !popup) return;
       if (openGroup && openGroup !== group) closeGroup(openGroup);
       group.classList.add('is-open');
+      getProjectCard(group)?.classList.add('has-notes-open');
       trigger.setAttribute('aria-expanded', 'true');
       popup.hidden = false;
       openGroup = group;
     };
+
+    const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
     noteGroups.forEach((group) => {
       const trigger = group.querySelector('.project__notes-trigger');
@@ -292,8 +298,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
       popup.hidden = true;
 
+      let closeTimer = null;
+
+      const cancelScheduledClose = () => {
+        if (closeTimer !== null) {
+          clearTimeout(closeTimer);
+          closeTimer = null;
+        }
+      };
+
+      const scheduleClose = () => {
+        cancelScheduledClose();
+        closeTimer = window.setTimeout(() => closeGroup(group), 120);
+      };
+
+      group.addEventListener('mouseenter', () => {
+        if (!canHover) return;
+        cancelScheduledClose();
+        openGroupPopup(group);
+      });
+
+      group.addEventListener('mouseleave', () => {
+        if (!canHover) return;
+        scheduleClose();
+      });
+
+      group.addEventListener('focusin', () => {
+        cancelScheduledClose();
+        openGroupPopup(group);
+      });
+
+      group.addEventListener('focusout', (event) => {
+        if (group.contains(event.relatedTarget)) return;
+        scheduleClose();
+      });
+
       trigger.addEventListener('click', (event) => {
         event.stopPropagation();
+        cancelScheduledClose();
         if (group.classList.contains('is-open')) {
           closeGroup(group);
           return;
