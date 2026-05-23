@@ -1006,6 +1006,11 @@ body.light .project__header-link:focus-visible h3 {
   color: var(--text-primary);
 }
 
+.project__header h3.project__title--forge,
+.project__header-link h3.project__title--forge {
+  font-size: calc(1.05rem * 1.69);
+}
+
 .project__body {
   margin-top: 1.15em;
 }
@@ -1334,6 +1339,11 @@ body.dark .skills__list-item:focus-visible {
     text-align: center;
     overflow-wrap: anywhere;
     word-break: break-word;
+  }
+
+  .project__header h3.project__title--forge,
+  .project__header-link h3.project__title--forge {
+    font-size: calc(0.9rem * 1.69);
   }
 
   .project__stack {
