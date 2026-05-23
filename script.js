@@ -353,7 +353,40 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
+  const initProjectsShowMore = () => {
+    const projectsGrid = document.getElementById('projects-grid');
+    const showMoreBtn = document.querySelector('.projects__show-more');
+    const showLessBtn = document.querySelector('.projects__show-less');
+    const seeMoreBtn = document.querySelector('.projects__see-more');
+    const showMoreWrap = document.querySelector('.projects__show-more-wrap');
+    const projectsMoreGrid = document.getElementById('projects-more-grid');
+    const githubUrl = 'https://github.com/JoshElieson';
+
+    if (!projectsGrid || !showMoreBtn || !showLessBtn || !seeMoreBtn || !showMoreWrap || !projectsMoreGrid) {
+      return;
+    }
+
+    showMoreBtn.addEventListener('click', () => {
+      projectsMoreGrid.classList.add('is-expanded');
+      showMoreBtn.setAttribute('aria-expanded', 'true');
+      projectsMoreGrid.after(showMoreWrap);
+      showMoreWrap.classList.add('is-repositioned');
+    });
+
+    showLessBtn.addEventListener('click', () => {
+      projectsMoreGrid.classList.remove('is-expanded');
+      showMoreBtn.setAttribute('aria-expanded', 'false');
+      projectsGrid.after(showMoreWrap);
+      showMoreWrap.classList.remove('is-repositioned');
+    });
+
+    seeMoreBtn.addEventListener('click', () => {
+      window.open(githubUrl, '_blank', 'noopener,noreferrer');
+    });
+  };
+
   initProjectHeaderLinks();
   initProjectNotesPopups();
+  initProjectsShowMore();
   initCursorProximity();
 });
