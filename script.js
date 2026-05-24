@@ -220,30 +220,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const initProjectHeaderLinks = () => {
     document.querySelectorAll('.project').forEach((project) => {
+      if (project.classList.contains('project--no-header-link')) return;
+
       const header = project.querySelector('.project__header');
       const iconLinks = project.querySelectorAll('.project__links a.link--icon');
       if (!header || !iconLinks.length) return;
 
-      let siteUrl = null;
-      let githubUrl = null;
-
-      iconLinks.forEach((anchor) => {
-        if (anchor.querySelector('.github-icon')) {
-          githubUrl = anchor.href;
-        } else {
-          siteUrl = anchor.href;
-        }
-      });
-
-      const url = siteUrl || githubUrl;
+      const primaryAnchor =
+        [...iconLinks].find((anchor) => !anchor.querySelector('.github-icon')) ||
+        iconLinks[0];
+      const url = primaryAnchor.href;
       if (!url) return;
 
       const title = header.querySelector('h3');
       const headerLink = document.createElement('a');
       headerLink.href = url;
       headerLink.className = 'project__header-link';
-      headerLink.target = '_blank';
-      headerLink.rel = 'noopener noreferrer';
+      if (primaryAnchor.target) {
+        headerLink.target = primaryAnchor.target;
+      }
+      if (primaryAnchor.rel) {
+        headerLink.rel = primaryAnchor.rel;
+      }
       if (title) {
         headerLink.setAttribute('aria-label', title.textContent.trim());
       }
@@ -385,6 +383,56 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
+  const initCaseStudyLightbox = () => {
+    const lightbox = document.getElementById('image-lightbox');
+    if (!lightbox) return;
+
+    const lightboxImg = lightbox.querySelector('.image-lightbox__image');
+    const lightboxCaption = lightbox.querySelector('.image-lightbox__caption');
+    const closeBtn = lightbox.querySelector('.image-lightbox__close');
+    const triggers = document.querySelectorAll('.case-study__figure-zoom');
+
+    if (!lightboxImg || !lightboxCaption || !closeBtn || !triggers.length) {
+      return;
+    }
+
+    const closeLightbox = () => {
+      lightbox.close();
+      lightboxImg.removeAttribute('src');
+      lightboxImg.alt = '';
+      lightboxCaption.textContent = '';
+    };
+
+    const openLightbox = (img, caption) => {
+      lightboxImg.src = img.currentSrc || img.src;
+      lightboxImg.alt = img.alt;
+      lightboxCaption.textContent = caption;
+      lightbox.showModal();
+    };
+
+    triggers.forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        const img = trigger.querySelector('img');
+        if (!img) return;
+        openLightbox(img, trigger.dataset.lightboxCaption || img.alt);
+      });
+    });
+
+    closeBtn.addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', (event) => {
+      if (event.target.closest('.image-lightbox__figure')) return;
+      closeLightbox();
+    });
+
+    lightbox.addEventListener('close', () => {
+      lightboxImg.removeAttribute('src');
+      lightboxImg.alt = '';
+      lightboxCaption.textContent = '';
+    });
+  };
+
+  initCaseStudyLightbox();
   initProjectHeaderLinks();
   initProjectNotesPopups();
   initProjectsShowMore();

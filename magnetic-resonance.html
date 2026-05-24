@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Case study: LC resonant magnetometer prototypes for magnetic resonance detection — circuit design, signal analysis, and experimental evaluation."
+    />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="apple-touch-icon" href="favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+    <title>Magnetic Resonance Detection System — Josh Elieson</title>
+  </head>
+  <body id="top">
+    <script>
+      (function () {
+        var saved = localStorage.getItem("portfolio-theme");
+        var theme;
+        if (saved === "light" || saved === "dark") {
+          theme = saved;
+        } else {
+          theme = "light";
+        }
+        document.body.className = theme;
+      })();
+    </script>
+    <header class="header center">
+      <a href="index.html" class="header-logo" aria-label="Home">
+        <h3>JE.</h3>
+      </a>
+
+      <nav class="nav center" aria-label="Main">
+        <ul class="nav__list center">
+          <li class="nav__list-item">
+            <a class="link link--nav" href="index.html#projects">Projects</a>
+          </li>
+          <li class="nav__list-item">
+            <a class="link link--nav" href="index.html#experience">Experience</a>
+          </li>
+          <li class="nav__list-item">
+            <a class="link link--nav" href="index.html#skills">Skills</a>
+          </li>
+          <li class="nav__list-item">
+            <a class="link link--nav" href="index.html#contact">Contact</a>
+          </li>
+        </ul>
+
+        <button type="button" aria-label="toggle theme" class="btn btn--icon btn-theme">
+          <svg
+            class="theme-icon theme-icon--moon"
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+            aria-hidden="true"
+          >
+            <path
+              d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <svg
+            class="theme-icon theme-icon--sun"
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+            aria-hidden="true"
+          >
+            <circle
+              cx="12"
+              cy="12"
+              r="4"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+            <path
+              d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+
+        <button
+          type="button"
+          aria-label="toggle navigation"
+          class="btn btn--icon nav__hamburger"
+        >
+          <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path
+              d="M3 12h18M3 6h18M3 18h18"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+      </nav>
+    </header>
+
+    <main class="case-study">
+      <a href="index.html#projects" class="case-study__back text-action">
+        <span class="case-study__back-inner">
+          <span class="link-arrow link-arrow--left" aria-hidden="true"></span>
+          <span class="case-study__back-text">Back to Projects</span>
+        </span>
+      </a>
+
+      <article class="case-study__content">
+        <section class="case-study__section">
+          <h2 class="case-study__heading">Overview</h2>
+          <p>
+            Designed and evaluated a low-cost magnetic sensing system using LC resonant oscillator
+            circuits. The project tested how magnetic-field changes affected oscillator frequency,
+            amplitude, and waveform behavior, turning noisy analog circuit measurements into measurable
+            performance data across multiple hardware prototypes.
+          </p>
+        </section>
+
+        <section class="case-study__section">
+          <h2 class="case-study__heading">My Role</h2>
+          <figure class="case-study__figure case-study__figure--float">
+            <button
+              type="button"
+              class="case-study__figure-zoom"
+              data-lightbox-caption="NE555 magnet-sensitive oscillator schematic"
+              aria-label="View larger: NE555 magnet-sensitive oscillator schematic"
+            >
+              <img
+                src="images/projects/magnetic-resonance-schematic.png"
+                alt="NE555-based magnet-sensitive oscillator circuit schematic with LC sensing inductor and transistor output conditioning"
+                width="680"
+                height="480"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+          </figure>
+          <p>
+            Contributed to circuit prototyping, component optimization, waveform analysis, and experimental
+            evaluation. My work focused on improving a NE555-based magnet-sensitive oscillator, where
+            component tuning and output conditioning increased sensitivity from 54.571 kHz/T to
+            730.336 kHz/T — a 13.44× gain improvement.
+          </p>
+        </section>
+
+        <section class="case-study__section">
+          <h2 class="case-study__heading">Technical Work</h2>
+          <ul class="case-study__list">
+            <li>
+              Built and tested LC resonant and NE555 oscillator prototypes to measure frequency shifts,
+              waveform changes, and amplitude response under magnetic-field variation.
+            </li>
+            <li>
+              Optimized capacitor values, sensing inductance, output loading, and transistor-based signal
+              conditioning to improve gain, reduce noise, and stabilize the measured waveform.
+            </li>
+            <li>
+              Analyzed oscilloscope measurements and experimental voltage/frequency data to compare
+              prototype performance, estimate sensitivity, and identify practical limits such as noise,
+              parasitic capacitance, component tuning, and measurement stability.
+            </li>
+          </ul>
+        </section>
+
+        <section class="case-study__section">
+          <h2 class="case-study__heading">Outcome</h2>
+          <div class="case-study__section-body case-study__section-body--split">
+            <p>
+              The final prototypes demonstrated measurable<br />
+              magnetic-field response, including a NE555
+              oscillator design with 730.336 kHz/T sensitivity and an estimated 15 mT limit of detection
+              at 13 mm. The project identified a path toward a more scalable sensing system through
+              improved coil geometry, shielding, precision components, and ADC/microcontroller-based
+              digital readout.
+            </p>
+            <figure class="case-study__figure case-study__figure--float-lg case-study__figure--side">
+              <button
+                type="button"
+                class="case-study__figure-zoom"
+                data-lightbox-caption="Frequency vs magnetic flux density — previous vs optimized measurements"
+                aria-label="View larger: Frequency vs magnetic flux density chart"
+              >
+                <img
+                  src="images/projects/magnetic-resonance-frequency-chart.png"
+                  alt="Frequency vs magnetic flux density chart comparing previous and optimized NE555 oscillator measurements"
+                  width="680"
+                  height="480"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </button>
+            </figure>
+          </div>
+          <div class="case-study__actions">
+            <a
+              href="documents/magnetic-resonance-poster.pdf"
+              class="projects__see-more text-action"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View poster
+              <span class="link-arrow" aria-hidden="true"></span>
+            </a>
+          </div>
+        </section>
+
+      </article>
+    </main>
+
+    <div id="theme-veil" class="theme-veil" aria-hidden="true"></div>
+
+    <dialog id="image-lightbox" class="image-lightbox" aria-labelledby="image-lightbox-caption">
+      <button type="button" class="image-lightbox__close btn btn--icon" aria-label="Close image">
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+          <path
+            d="M18 6L6 18M6 6l12 12"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <figure class="image-lightbox__figure">
+        <img class="image-lightbox__image" src="" alt="" />
+        <figcaption id="image-lightbox-caption" class="image-lightbox__caption"></figcaption>
+      </figure>
+    </dialog>
+  </body>
+</html>
