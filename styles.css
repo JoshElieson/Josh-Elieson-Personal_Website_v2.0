@@ -1452,6 +1452,11 @@ body.dark .skills__list-item:focus-visible {
     gap: 1rem;
   }
 
+  .projects__grid--more.is-expanded {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
   .projects__grid--more.is-expanded,
   .projects__show-more-wrap,
   .projects__show-more-wrap.is-repositioned {

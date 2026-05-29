@@ -359,12 +359,46 @@ document.addEventListener('DOMContentLoaded', () => {
     const showMoreWrap = document.querySelector('.projects__show-more-wrap');
     const projectsMoreGrid = document.getElementById('projects-more-grid');
     const githubUrl = 'https://github.com/JoshElieson';
+    const mobileMq = window.matchMedia('(max-width: 600px)');
 
     if (!projectsGrid || !showMoreBtn || !showLessBtn || !seeMoreBtn || !showMoreWrap || !projectsMoreGrid) {
       return;
     }
 
+    let isExpanded = false;
+    let mobilePreviewProject = null;
+
+    const restoreMobilePreviewProject = () => {
+      if (!mobilePreviewProject || mobilePreviewProject.parentElement !== projectsGrid) {
+        return;
+      }
+
+      projectsMoreGrid.insertBefore(mobilePreviewProject, projectsMoreGrid.firstChild);
+      mobilePreviewProject = null;
+    };
+
+    const syncMobileProjectsLayout = () => {
+      if (!mobileMq.matches) {
+        restoreMobilePreviewProject();
+        return;
+      }
+
+      if (mobilePreviewProject && mobilePreviewProject.parentElement === projectsGrid) {
+        return;
+      }
+
+      const nextPreviewProject = projectsMoreGrid.querySelector('.project');
+      if (!nextPreviewProject) {
+        return;
+      }
+
+      projectsGrid.appendChild(nextPreviewProject);
+      mobilePreviewProject = nextPreviewProject;
+    };
+
     showMoreBtn.addEventListener('click', () => {
+      syncMobileProjectsLayout();
+      isExpanded = true;
       projectsMoreGrid.classList.add('is-expanded');
       showMoreBtn.setAttribute('aria-expanded', 'true');
       projectsMoreGrid.after(showMoreWrap);
@@ -372,15 +406,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     showLessBtn.addEventListener('click', () => {
+      isExpanded = false;
       projectsMoreGrid.classList.remove('is-expanded');
       showMoreBtn.setAttribute('aria-expanded', 'false');
       projectsGrid.after(showMoreWrap);
       showMoreWrap.classList.remove('is-repositioned');
+      syncMobileProjectsLayout();
     });
 
     seeMoreBtn.addEventListener('click', () => {
       window.open(githubUrl, '_blank', 'noopener,noreferrer');
     });
+
+    mobileMq.addEventListener('change', syncMobileProjectsLayout);
+    syncMobileProjectsLayout();
   };
 
   const initCaseStudyLightbox = () => {
