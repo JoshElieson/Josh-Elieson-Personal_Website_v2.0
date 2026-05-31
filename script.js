@@ -359,31 +359,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const showMoreWrap = document.querySelector('.projects__show-more-wrap');
     const projectsMoreGrid = document.getElementById('projects-more-grid');
     const githubUrl = 'https://github.com/JoshElieson';
-    const mobileMq = window.matchMedia('(max-width: 600px)');
 
     if (!projectsGrid || !showMoreBtn || !showLessBtn || !seeMoreBtn || !showMoreWrap || !projectsMoreGrid) {
       return;
     }
 
     let isExpanded = false;
-    let mobilePreviewProject = null;
+    let compactPreviewProject = null;
 
-    const restoreMobilePreviewProject = () => {
-      if (!mobilePreviewProject || mobilePreviewProject.parentElement !== projectsGrid) {
-        return;
-      }
-
-      projectsMoreGrid.insertBefore(mobilePreviewProject, projectsMoreGrid.firstChild);
-      mobilePreviewProject = null;
+    const getProjectsGridColumnCount = () => {
+      const template = getComputedStyle(projectsGrid).gridTemplateColumns;
+      return template.split(' ').filter((track) => track && track !== 'none').length;
     };
 
-    const syncMobileProjectsLayout = () => {
-      if (!mobileMq.matches) {
-        restoreMobilePreviewProject();
+    const usesCompactProjectsLayout = () => getProjectsGridColumnCount() < 3;
+
+    const restoreCompactPreviewProject = () => {
+      if (!compactPreviewProject || compactPreviewProject.parentElement !== projectsGrid) {
         return;
       }
 
-      if (mobilePreviewProject && mobilePreviewProject.parentElement === projectsGrid) {
+      projectsMoreGrid.insertBefore(compactPreviewProject, projectsMoreGrid.firstChild);
+      compactPreviewProject = null;
+    };
+
+    const syncCompactProjectsLayout = () => {
+      if (!usesCompactProjectsLayout()) {
+        restoreCompactPreviewProject();
+        return;
+      }
+
+      if (compactPreviewProject && compactPreviewProject.parentElement === projectsGrid) {
         return;
       }
 
@@ -393,11 +399,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       projectsGrid.appendChild(nextPreviewProject);
-      mobilePreviewProject = nextPreviewProject;
+      compactPreviewProject = nextPreviewProject;
     };
 
     showMoreBtn.addEventListener('click', () => {
-      syncMobileProjectsLayout();
+      syncCompactProjectsLayout();
       isExpanded = true;
       projectsMoreGrid.classList.add('is-expanded');
       showMoreBtn.setAttribute('aria-expanded', 'true');
@@ -411,15 +417,24 @@ document.addEventListener('DOMContentLoaded', () => {
       showMoreBtn.setAttribute('aria-expanded', 'false');
       projectsGrid.after(showMoreWrap);
       showMoreWrap.classList.remove('is-repositioned');
-      syncMobileProjectsLayout();
+      syncCompactProjectsLayout();
     });
 
     seeMoreBtn.addEventListener('click', () => {
       window.open(githubUrl, '_blank', 'noopener,noreferrer');
     });
 
-    mobileMq.addEventListener('change', syncMobileProjectsLayout);
-    syncMobileProjectsLayout();
+    const scheduleCompactProjectsLayoutSync = () => {
+      window.requestAnimationFrame(syncCompactProjectsLayout);
+    };
+
+    if (typeof ResizeObserver !== 'undefined') {
+      const projectsLayoutObserver = new ResizeObserver(scheduleCompactProjectsLayoutSync);
+      projectsLayoutObserver.observe(projectsGrid);
+    }
+
+    window.addEventListener('resize', scheduleCompactProjectsLayoutSync);
+    scheduleCompactProjectsLayoutSync();
   };
 
   const initCaseStudyLightbox = () => {
