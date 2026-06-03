@@ -1083,6 +1083,27 @@ body.light .project__header-link:focus-visible h3 {
   color: var(--text-primary);
 }
 
+.project__title-group {
+  flex: 1;
+  min-width: 0;
+}
+
+.project__header:has(.project__title--forge) {
+  align-items: flex-start;
+}
+
+.project__header:has(.project__title--forge) .project__title-group {
+  padding-top: calc((88px - 1.05rem * 1.69 * 1.35) / 2);
+}
+
+.project__subtitle {
+  margin: 0.2em 0 0;
+  font-size: 0.72rem;
+  line-height: 1.2;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
 .project__header h3.project__title--forge,
 .project__header-link h3.project__title--forge {
   font-size: calc(1.05rem * 1.69);
@@ -1491,6 +1512,14 @@ body.dark .skills__list-item:focus-visible {
     text-align: center;
     overflow-wrap: anywhere;
     word-break: break-word;
+  }
+
+  .project__header:has(.project__title--forge) {
+    align-items: center;
+  }
+
+  .project__header:has(.project__title--forge) .project__title-group {
+    padding-top: 0;
   }
 
   .project__header h3.project__title--forge,
