@@ -154,70 +154,6 @@ document.addEventListener('DOMContentLoaded', () => {
     btnHamburger.addEventListener('click', displayList);
   }
 
-  const initCursorProximity = () => {
-    if (prefersReducedMotion || !window.matchMedia('(pointer: fine)').matches) return;
-
-    const PROXIMITY = 96;
-    const targets = [
-      ...document.querySelectorAll(
-        'main h1, main h2, main h3, main h4, main p, main .about__name, main .project__stack-item, main .link--icon-text:not(.link--muted), main a.link:not(.link--icon), .header-logo h3, .nav__list .link--nav, footer .footer__link'
-      ),
-    ];
-
-    targets.forEach((el) => el.setAttribute('data-cursor-proximity', ''));
-
-    let mouseX = -9999;
-    let mouseY = -9999;
-    let ticking = false;
-
-    const distanceToRect = (x, y, rect) => {
-      const dx = Math.max(rect.left - x, 0, x - rect.right);
-      const dy = Math.max(rect.top - y, 0, y - rect.bottom);
-      return Math.hypot(dx, dy);
-    };
-
-    const clearProximity = () => {
-      targets.forEach((el) => {
-        el.classList.remove('is-cursor-near');
-        el.style.removeProperty('--proximity');
-      });
-    };
-
-    const update = () => {
-      ticking = false;
-
-      targets.forEach((el) => {
-        const rect = el.getBoundingClientRect();
-        const dist = distanceToRect(mouseX, mouseY, rect);
-        const linear = dist >= PROXIMITY ? 0 : 1 - dist / PROXIMITY;
-        const intensity = linear * linear;
-
-        if (intensity > 0.02) {
-          el.classList.add('is-cursor-near');
-          el.style.setProperty('--proximity', intensity.toFixed(3));
-        } else {
-          el.classList.remove('is-cursor-near');
-          el.style.removeProperty('--proximity');
-        }
-      });
-    };
-
-    window.addEventListener(
-      'mousemove',
-      (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        if (!ticking) {
-          ticking = true;
-          requestAnimationFrame(update);
-        }
-      },
-      { passive: true }
-    );
-
-    document.addEventListener('mouseleave', clearProximity);
-  };
-
   const initProjectHeaderLinks = () => {
     document.querySelectorAll('.project').forEach((project) => {
       if (project.classList.contains('project--no-header-link')) return;
@@ -490,5 +426,4 @@ document.addEventListener('DOMContentLoaded', () => {
   initProjectHeaderLinks();
   initProjectNotesPopups();
   initProjectsShowMore();
-  initCursorProximity();
 });

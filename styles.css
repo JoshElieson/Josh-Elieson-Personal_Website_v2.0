@@ -112,7 +112,6 @@ html {
   scroll-behavior: smooth;
   --theme-veil-duration: 0.42s;
   --theme-veil-ease: cubic-bezier(0.4, 0, 0.2, 1);
-  --forest-highlight-rgb: 31, 81, 53;
 }
 
 body {
@@ -123,39 +122,6 @@ body {
   background-color: transparent;
   min-height: 100vh;
   position: relative;
-}
-
-/* Cursor proximity — text lifts and tints toward deep forest green */
-[data-cursor-proximity] {
-  transition:
-    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-    color 0.45s ease,
-    text-shadow 0.45s ease;
-}
-
-[data-cursor-proximity].is-cursor-near {
-  transform: translateY(calc(var(--proximity, 0) * -4px));
-  color: color-mix(
-    in srgb,
-    currentColor calc((1 - var(--proximity, 0)) * 100%),
-    #1f5135 calc(var(--proximity, 0) * 100%)
-  );
-  text-shadow: 0 calc(var(--proximity, 0) * 6px)
-    calc(var(--proximity, 0) * 14px)
-    rgba(var(--forest-highlight-rgb), calc(var(--proximity, 0) * 0.22));
-}
-
-body.light main .section__title[data-cursor-proximity].is-cursor-near,
-body.light .project__header h3[data-cursor-proximity].is-cursor-near,
-body.light .project__header-link h3[data-cursor-proximity].is-cursor-near {
-  color: color-mix(
-    in srgb,
-    currentColor calc((1 - var(--proximity, 0)) * 100%),
-    var(--heading-beige-dark) calc(var(--proximity, 0) * 100%)
-  );
-  text-shadow: 0 calc(var(--proximity, 0) * 6px)
-    calc(var(--proximity, 0) * 14px)
-    rgba(77, 87, 99, calc(var(--proximity, 0) * 0.22));
 }
 
 /* Crossfade page backgrounds — gradients don't tween via variables alone */
@@ -222,10 +188,6 @@ body.light::after {
   body::before,
   body::after,
   .theme-veil {
-    transition: none;
-  }
-
-  [data-cursor-proximity] {
     transition: none;
   }
 }
@@ -433,8 +395,8 @@ a:has(> .btn--outline) {
   transition: filter 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-a:has(> .btn--outline):hover,
-a:has(> .btn--outline):focus-visible {
+a:has(> .btn--outline:not(.btn--resume)):hover,
+a:has(> .btn--outline:not(.btn--resume)):focus-visible {
   filter: drop-shadow(0 0 10px rgba(46, 139, 87, 0.55))
     drop-shadow(0 0 20px rgba(59, 130, 246, 0.4))
     drop-shadow(0 0 32px rgba(59, 130, 246, 0.22));
@@ -445,6 +407,12 @@ a:has(> .btn--outline):focus-visible {
 a:hover > .btn--outline,
 a:focus-visible > .btn--outline {
   transform: translateY(-3px) scale(1.025);
+}
+
+.btn--outline:not(.btn--resume):hover,
+.btn--outline:not(.btn--resume):focus-visible,
+a:hover > .btn--outline:not(.btn--resume),
+a:focus-visible > .btn--outline:not(.btn--resume) {
   box-shadow:
     0 0 14px rgba(46, 139, 87, 0.45),
     0 0 26px rgba(59, 130, 246, 0.35);
@@ -1535,10 +1503,6 @@ body.dark .skills__list-item:focus-visible {
   .project__stack {
     justify-content: center;
     margin-top: 0.8em;
-  }
-
-  .project__stack-item--resumeai-openai {
-    order: 2;
   }
 
   .project__stack-item--excel-docker {

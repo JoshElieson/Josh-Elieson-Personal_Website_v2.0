@@ -209,6 +209,7 @@
       <section id="projects" class="section projects">
         <h2 class="section__title">Projects</h2>
         <div class="projects__grid" id="projects-grid">
+
           <article class="project">
             <div class="project__header">
               <img
@@ -303,6 +304,104 @@
           </div>
             </div>
           </article>
+
+
+          <article class="project">
+            <div class="project__header">
+              <img
+                class="project__image"
+                src="images/projects/agent-dock-homepage.png"
+                alt=""
+                width="88"
+                height="88"
+                loading="lazy"
+                decoding="async"
+              />
+              <h3>AgentDock</h3>
+            </div>
+            <div class="project__body">
+            <p class="project__description">
+              Universal package registry for AI agents and developer tools. Discover, publish, install,
+              version, and review agents, Claude skills, MCP servers, Cursor rules, workflows, and prompt
+              packs across major AI platforms. Built with Next.js, React, TypeScript, Tailwind, Prisma,
+              and NextAuth.
+            </p>
+            <ul class="project__stack">
+              <li class="project__stack-item">Next.js</li>
+              <li class="project__stack-item">TypeScript</li>
+              <li class="project__stack-item">Prisma</li>
+              <li class="project__stack-item">AI</li>
+              <li class="project__stack-item">NextAuth</li>
+            </ul>
+            <div class="project__links">
+            <a
+            href="https://agent-hub-red.vercel.app/"
+            aria-label="AgentDock live demo"
+            class="link link--icon"
+            target="_blank"
+            rel="noopener noreferrer"
+            >
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path
+            d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6 M15 3h6v6 M10 14L21 3"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            />
+            </svg>
+            </a>
+            <a
+            href="https://github.com/JoshElieson/AgentHub"
+            aria-label="AgentDock source code"
+            class="link link--icon"
+            target="_blank"
+            rel="noopener noreferrer"
+            >
+            <svg class="github-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path
+            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            />
+            </svg>
+            </a>
+            <div class="project__notes">
+              <button
+                type="button"
+                class="project__notes-trigger link link--icon"
+                aria-label="Open AgentDock technical notes"
+                aria-expanded="false"
+                aria-controls="notes-agentdock"
+              >
+                <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+                  <path
+                    d="M7 3h7l5 5v13H7z M14 3v6h6 M10 12h2 M14 12h2 M10 16h2 M14 16h2"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+              <div id="notes-agentdock" class="project__notes-popup" role="dialog" aria-modal="false" hidden>
+                <p class="project__notes-title">Technical notes</p>
+                <ul class="project__notes-list">
+                  <li>Next.js 15 App Router and React 19 power a TypeScript marketplace for discovering, publishing, and reviewing installable AI capabilities.</li>
+                  <li>Prisma models packages, versions, creators, organizations, reviews, and collections, with PostgreSQL persistence and Auth.js OAuth through GitHub and Google.</li>
+                  <li>Zod-validated metadata, a typed query layer, and the agent.json standard unify Claude skills, MCP servers, Cursor rules, workflows, and prompt packs across platforms.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+            </div>
+          </article>
+
 
           <article class="project">
             <div class="project__header">
@@ -400,12 +499,36 @@
           </div>
             </div>
           </article>
+                </div>
+
+        <div class="projects__show-more-wrap">
+          <button
+            type="button"
+            class="projects__show-more text-action"
+            aria-expanded="false"
+            aria-controls="projects-more-grid"
+          >
+            Show more
+          </button>
+          <div class="projects__expanded-actions">
+            <button type="button" class="projects__show-less text-action">
+              Show Less
+            </button>
+            <button type="button" class="projects__see-more text-action">
+              More on GitHub
+              <span class="link-arrow" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="projects__grid projects__grid--more" id="projects-more-grid">
+
 
           <article class="project">
             <div class="project__header">
               <img
                 class="project__image"
-n                src="images/projects/magnetic-resonance-waveform.png"
+                src="images/projects/magnetic-resonance-waveform.png"
                 alt=""
                 width="88"
                 height="88"
@@ -467,29 +590,9 @@ n                src="images/projects/magnetic-resonance-waveform.png"
           </div>
             </div>
           </article>
-        </div>
 
-        <div class="projects__show-more-wrap">
-          <button
-            type="button"
-            class="projects__show-more text-action"
-            aria-expanded="false"
-            aria-controls="projects-more-grid"
-          >
-            Show more
-          </button>
-          <div class="projects__expanded-actions">
-            <button type="button" class="projects__show-less text-action">
-              Show Less
-            </button>
-            <button type="button" class="projects__see-more text-action">
-              More on GitHub
-              <span class="link-arrow" aria-hidden="true"></span>
-            </button>
-          </div>
-        </div>
+          
 
-        <div class="projects__grid projects__grid--more" id="projects-more-grid">
           <article class="project">
             <div class="project__header">
               <img
@@ -585,98 +688,7 @@ n                src="images/projects/magnetic-resonance-waveform.png"
             </div>
           </article>
 
-          <article class="project">
-            <div class="project__header">
-              <img
-                class="project__image"
-                src="images/projects/resume-ai-homepage.png"
-                alt=""
-                width="88"
-                height="88"
-                loading="lazy"
-                decoding="async"
-              />
-              <h3>ResumeAI: Intelligent Career Coach</h3>
-            </div>
-            <div class="project__body">
-            <p class="project__description">
-              AI-powered resume platform featuring intelligent scoring, ATS-focused feedback, resume
-              comparisons, targeted optimization, scan history tracking, and an integrated career guidance
-              chatbot. Built with Next.js, TypeScript, and OpenAI APIs.
-            </p>
-            <ul class="project__stack">
-              <li class="project__stack-item">Next.js</li>
-              <li class="project__stack-item">TypeScript</li>
-              <li class="project__stack-item project__stack-item--resumeai-openai">OpenAI</li>
-            </ul>
-            <div class="project__links">
-            <a
-            href="https://resume-ai-free-resume-coach.vercel.app/"
-            aria-label="ResumeAI live demo"
-            class="link link--icon"
-            target="_blank"
-            rel="noopener noreferrer"
-            >
-            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
-            <path
-            d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6 M15 3h6v6 M10 14L21 3"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            />
-            </svg>
-            </a>
-            <a
-            href="https://github.com/JoshElieson/ResumeAI-Free_Resume_Coach"
-            aria-label="ResumeAI source code"
-            class="link link--icon"
-            target="_blank"
-            rel="noopener noreferrer"
-            >
-            <svg class="github-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
-            <path
-            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            />
-            </svg>
-            </a>
-            <div class="project__notes">
-              <button
-                type="button"
-                class="project__notes-trigger link link--icon"
-                aria-label="Open ResumeAI technical notes"
-                aria-expanded="false"
-                aria-controls="notes-resumeai"
-              >
-                <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
-                  <path
-                    d="M7 3h7l5 5v13H7z M14 3v6h6 M10 12h2 M14 12h2 M10 16h2 M14 16h2"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </button>
-              <div id="notes-resumeai" class="project__notes-popup" role="dialog" aria-modal="false" hidden>
-                <p class="project__notes-title">Technical notes</p>
-                <ul class="project__notes-list">
-                  <li>Next.js + TypeScript app with server/client rendering split for responsive UX.</li>
-                  <li>OpenAI-backed scoring and rewrite flows tuned for ATS keyword alignment.</li>
-                  <li>Resume scan history persists feedback context for iterative improvements.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-            </div>
-          </article>
+          
 
           
 
@@ -746,7 +758,7 @@ n                src="images/projects/magnetic-resonance-waveform.png"
             </div>
           </article>
 
-        </div>
+                  </div>
 
         
       </section>
