@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Josh Elieson — Software Engineer portfolio. Projects, skills, and contact."
+      content="Josh Elieson — Software Engineer portfolio. Experience, projects, and contact."
     />
     <link rel="icon" type="image/png" href="favicon.png" />
     <link rel="apple-touch-icon" href="favicon.png" />
@@ -19,19 +19,7 @@
     <script src="script.js" defer></script>
     <title>Josh Elieson's Portfolio</title>
   </head>
-  <body id="top">
-    <script>
-      (function () {
-        var saved = localStorage.getItem("portfolio-theme");
-        var theme;
-        if (saved === "light" || saved === "dark") {
-          theme = saved;
-        } else {
-          theme = "light";
-        }
-        document.body.className = theme;
-      })();
-    </script>
+  <body id="top" class="light">
     <header class="header center">
       <a href="#top" class="header-logo" aria-label="Home">
         <h3>JE.</h3>
@@ -40,59 +28,18 @@
       <nav class="nav center" aria-label="Main">
         <ul class="nav__list center">
           <li class="nav__list-item">
-            <a class="link link--nav" href="#projects">Projects</a>
-          </li>
-          <li class="nav__list-item">
             <a class="link link--nav" href="#experience">Experience</a>
           </li>
           <li class="nav__list-item">
-            <a class="link link--nav" href="#skills">Skills</a>
+            <a class="link link--nav" href="#projects">Projects</a>
           </li>
           <li class="nav__list-item">
             <a class="link link--nav" href="#contact">Contact</a>
           </li>
+          <li class="nav__list-item">
+            <a class="link link--nav" href="JoshElieson_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+          </li>
         </ul>
-
-        <button type="button" aria-label="toggle theme" class="btn btn--icon btn-theme">
-          <svg
-            class="theme-icon theme-icon--moon"
-            viewBox="0 0 24 24"
-            width="24"
-            height="24"
-            aria-hidden="true"
-          >
-            <path
-              d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-          <svg
-            class="theme-icon theme-icon--sun"
-            viewBox="0 0 24 24"
-            width="24"
-            height="24"
-            aria-hidden="true"
-          >
-            <circle
-              cx="12"
-              cy="12"
-              r="4"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            />
-            <path
-              d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-            />
-          </svg>
-        </button>
 
         <button
           type="button"
@@ -128,13 +75,12 @@
         />
 
         <h4 class="about__role">
-          Software Engineer pursuing an MS in Computer Science at Columbia University.
+          Software Engineer, M.S. in Computer Science at Columbia University
         </h4>
         <p class="about__desc">
-          I build software systems across cloud infrastructure, distributed systems, algorithms, and AI.
-          Previously at Northrop Grumman, I developed CI/CD automation, optimized deployment pipelines, and
-          built real-time visualization tools for large-scale sensor systems. Passionate about backend
-          engineering, developer tooling, and innovative technology.
+          I care about software with impact.<br />
+          Experience in cloud, full-stack, and web/app development.<br />
+          Interested in computer vision, AI/ML, data, and security.
         </p>
 
         <div class="about__contact center">
@@ -206,10 +152,130 @@
         </div>
       </div>
 
+      <section id="experience" class="section experience">
+        <h2 class="section__title">Experience</h2>
+        <ol class="experience-list" aria-label="Work experience">
+          <li class="experience-item">
+            <a class="experience-item__link" href="https://www.columbia.edu/" target="_blank" rel="noopener noreferrer">
+              <p class="experience-item__range">Sep 2026 - Present</p>
+              <div class="experience-item__content">
+                <h3 class="experience-item__title">Teaching Assistant</h3>
+                <div class="experience-item__meta">
+                  <p class="experience-item__company">
+                    <img class="experience-item__logo experience-item__logo--columbia" src="images/columbia_university_logo.jpg" alt="" width="22" height="22" loading="lazy" decoding="async" />
+                    <span>Columbia University · Calculus I · New York, NY</span>
+                  </p>
+                </div>
+                <ul class="experience-item__bullets">
+                  <li>Support undergraduate Calculus I instruction through help hours, grading, and student assistance.</li>
+                </ul>
+                <ul class="experience-item__tags" aria-label="Focus areas">
+                  <li>Teaching</li>
+                  <li>Calculus</li>
+                </ul>
+              </div>
+            </a>
+          </li>
+
+          <li class="experience-item">
+            <a
+              class="experience-item__link"
+              href="https://www.northropgrumman.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <p class="experience-item__range">Aug 2024 - Aug 2025</p>
+              <div class="experience-item__content">
+                <h3 class="experience-item__title">Software Engineering Intern</h3>
+                <div class="experience-item__meta">
+                  <p class="experience-item__company">
+                    <img class="experience-item__logo experience-item__logo--transparent experience-item__logo--northrop" src="images/northrop_grumman_corporation_logo_transparent.png" alt="" width="22" height="22" loading="lazy" decoding="async" />
+                    <span>Northrop Grumman · Cloud Services &amp; Integration · Roy, UT</span>
+                  </p>
+                </div>
+                <ul class="experience-item__bullets">
+                  <li>Simplified the UML model upload process, reducing manual review time by 60% through 10 automated validation scripts in Jython and Groovy.</li>
+                  <li>Standardized distributed systems tooling across tens of engineering teams by co-authoring 20+ technical guidelines for Spark, Kafka, Hadoop, Docker, and Kubernetes.</li>
+                  <li>Optimized the CI/CD pipeline, reducing deployment time from 1–2 days to under 30 minutes across 200+ internal projects by implementing an automated verification process.</li>
+                </ul>
+                <ul class="experience-item__tags" aria-label="Technologies used">
+                  <li>Jython</li>
+                  <li>Groovy</li>
+                  <li>C++</li>
+                  <li>Cameo</li>
+                  <li>Git</li>
+                  <li>Agile</li>
+                </ul>
+              </div>
+            </a>
+          </li>
+
+          <li class="experience-item">
+            <a
+              class="experience-item__link"
+              href="https://www.northropgrumman.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <p class="experience-item__range">May 2024 - Aug 2024</p>
+              <div class="experience-item__content">
+                <h3 class="experience-item__title">Software Engineering Intern</h3>
+                <div class="experience-item__meta">
+                  <p class="experience-item__company">
+                    <img class="experience-item__logo experience-item__logo--transparent experience-item__logo--northrop" src="images/northrop_grumman_corporation_logo_transparent.png" alt="" width="22" height="22" loading="lazy" decoding="async" />
+                    <span>Northrop Grumman · Physical Security · Roy, UT</span>
+                  </p>
+                </div>
+                <ul class="experience-item__bullets">
+                  <li>Improved LiDAR sensor processing speed by 3x through algorithms that convert millions of live packets into structured point cloud data.</li>
+                  <li>Reduced LiDAR scan visualization time from 10+ minutes to seconds by building a React-based 3D viewer to render point cloud data.</li>
+                  <li>Enabled real-time monitoring across 10+ LiDAR scanners by deploying the completed sensor system for use by the security team.</li>
+                </ul>
+                <ul class="experience-item__tags" aria-label="Technologies used">
+                  <li>TypeScript</li>
+                  <li>React</li>
+                  <li>JavaScript</li>
+                  <li>C</li>
+                  <li>Node.js</li>
+                  <li>REST APIs</li>
+                </ul>
+              </div>
+            </a>
+          </li>
+
+          <li class="experience-item">
+            <a
+              class="experience-item__link"
+              href="https://www.utah.edu/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <p class="experience-item__range">Aug 2023 - May 2024</p>
+              <div class="experience-item__content">
+                <h3 class="experience-item__title">Learning Assistant</h3>
+                <div class="experience-item__meta">
+                  <p class="experience-item__company">
+                    <img class="experience-item__logo experience-item__logo--transparent experience-item__logo--utah" src="images/university_of_utah_logo_transparent.png" alt="" width="22" height="22" loading="lazy" decoding="async" />
+                    <span>University of Utah · Physics for Scientists and Engineers · Salt Lake City, UT</span>
+                  </p>
+                </div>
+                <ul class="experience-item__bullets">
+                  <li>Supported physics instruction for 100+ students by leading twice-weekly discussion sessions focused on calculus-based mechanics.</li>
+                  <li>Mentored 50+ students one-on-one through homework and exam preparation by hosting weekly office hours.</li>
+                </ul>
+                <ul class="experience-item__tags" aria-label="Focus areas">
+                  <li>Teaching</li>
+                  <li>Physics</li>
+                </ul>
+              </div>
+            </a>
+          </li>
+        </ol>
+      </section>
+
       <section id="projects" class="section projects">
         <h2 class="section__title">Projects</h2>
         <div class="projects__grid" id="projects-grid">
-
           <article class="project">
             <div class="project__header">
               <img
@@ -305,7 +371,6 @@
             </div>
           </article>
 
-
           <article class="project">
             <div class="project__header">
               <img
@@ -321,9 +386,7 @@
             </div>
             <div class="project__body">
             <p class="project__description">
-              Universal package registry for AI agents and developer tools. Discover, publish, install,
-              version, and review agents, Claude skills, MCP servers, Cursor rules, workflows, and prompt
-              packs across major AI platforms.
+              AI skills registry with 1,000+ packages for discovering, publishing, and managing reusable skills across Claude, Codex, Antigravity, and other AI platforms. A unified installation system enables one-click setup with platform-specific configuration handled automatically.
             </p>
             <ul class="project__stack">
               <li class="project__stack-item">Next.js</li>
@@ -401,128 +464,6 @@
             </div>
           </article>
 
-
-          <article class="project">
-            <div class="project__header">
-              <img
-                class="project__image"
-                src="images/projects/forge-homepage.png"
-                alt=""
-                width="88"
-                height="88"
-                loading="lazy"
-                decoding="async"
-              />
-              <div class="project__title-group">
-                <h3 class="project__title--forge">FORGE</h3>
-              </div>
-            </div>
-            <div class="project__body">
-            <p class="project__description">
-              Desktop prompt-engineering IDE with multi-model chat, project file context, and Round
-              Table orchestration. Features activity and sidebars for chats, projects, file trees,
-              and streaming model metrics. Built with Tauri, React, TypeScript, and Tailwind.
-            </p>
-            <ul class="project__stack">
-              <li class="project__stack-item">Tauri</li>
-              <li class="project__stack-item">React</li>
-              <li class="project__stack-item">TypeScript</li>
-              <li class="project__stack-item">AI</li>
-              <li class="project__stack-item">API</li>
-            </ul>
-            <div class="project__links">
-            <a
-            href="https://pe-web-ebon.vercel.app/"
-            aria-label="FORGE live demo"
-            class="link link--icon"
-            target="_blank"
-            rel="noopener noreferrer"
-            >
-            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
-            <path
-            d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6 M15 3h6v6 M10 14L21 3"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            />
-            </svg>
-            </a>
-            <a
-            href="https://github.com/JoshElieson/PROMPT-ENG-v2.0"
-            aria-label="FORGE source code"
-            class="link link--icon"
-            target="_blank"
-            rel="noopener noreferrer"
-            >
-            <svg class="github-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
-            <path
-            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            />
-            </svg>
-            </a>
-            <div class="project__notes">
-              <button
-                type="button"
-                class="project__notes-trigger link link--icon"
-                aria-label="Open FORGE technical notes"
-                aria-expanded="false"
-                aria-controls="notes-forge"
-              >
-                <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
-                  <path
-                    d="M7 3h7l5 5v13H7z M14 3v6h6 M10 12h2 M14 12h2 M10 16h2 M14 16h2"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </button>
-              <div id="notes-forge" class="project__notes-popup" role="dialog" aria-modal="false" hidden>
-                <p class="project__notes-title">Technical notes</p>
-                <ul class="project__notes-list">
-                  <li>Tauri desktop architecture wraps a React + TypeScript frontend in a native shell.</li>
-                  <li>Multi-model orchestration supports side-by-side prompt evaluation workflows.</li>
-                  <li>Streaming metrics and activity panes improve observability during long model runs.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-            </div>
-          </article>
-                </div>
-
-        <div class="projects__show-more-wrap">
-          <button
-            type="button"
-            class="projects__show-more text-action"
-            aria-expanded="false"
-            aria-controls="projects-more-grid"
-          >
-            Show more
-          </button>
-          <div class="projects__expanded-actions">
-            <button type="button" class="projects__show-less text-action">
-              Show Less
-            </button>
-            <button type="button" class="projects__see-more text-action">
-              More on GitHub
-              <span class="link-arrow" aria-hidden="true"></span>
-            </button>
-          </div>
-        </div>
-
-        <div class="projects__grid projects__grid--more" id="projects-more-grid">
-
-
           <article class="project">
             <div class="project__header">
               <img
@@ -538,8 +479,7 @@
             </div>
             <div class="project__body">
             <p class="project__description">
-              Designed and evaluated LC resonant magnetometer prototypes for mechanical detection of
-              magnetic resonance, combining circuit design, waveform analysis, and experimental testing.
+              Developed an LC resonant magnetic sensing system, improving detection sensitivity by 13.44x. Analyzed voltage, frequency, and waveform data in Python and MATLAB across sensor prototypes, achieving a 15 mT detection limit at 13 mm.
             </p>
             <ul class="project__stack">
               <li class="project__stack-item">Circuit Design</li>
@@ -589,301 +529,69 @@
           </div>
             </div>
           </article>
+        </div>
 
-          
+        <div class="projects__show-more-wrap">
+          <button type="button" class="projects__show-more text-action" aria-expanded="false" aria-controls="projects-more-grid">
+            Show more
+          </button>
+          <button type="button" class="projects__show-less text-action" aria-expanded="false" aria-controls="projects-more-grid" hidden>
+            Show less
+          </button>
+        </div>
+
+        <div class="projects__grid projects__grid--more" id="projects-more-grid" hidden>
+          <article class="project">
+            <div class="project__header">
+              <img class="project__image" src="images/projects/forge-homepage.png" alt="" width="88" height="88" loading="lazy" decoding="async" />
+              <h3 class="project__title--forge">FORGE</h3>
+            </div>
+            <div class="project__body">
+              <p class="project__description">Desktop prompt-engineering IDE with multi-model chat, project file context, Round Table orchestration, and streaming model metrics.</p>
+              <ul class="project__stack">
+                <li class="project__stack-item">Tauri</li><li class="project__stack-item">React</li><li class="project__stack-item">TypeScript</li><li class="project__stack-item">AI</li>
+              </ul>
+              <div class="project__links">
+                <a href="https://pe-web-ebon.vercel.app/" aria-label="FORGE live demo" class="link link--icon" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6 M15 3h6v6 M10 14L21 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+                <a href="https://github.com/JoshElieson/PROMPT-ENG-v2.0" aria-label="FORGE source code" class="link link--icon" target="_blank" rel="noopener noreferrer"><svg class="github-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+              </div>
+            </div>
+          </article>
 
           <article class="project">
             <div class="project__header">
-              <img
-                class="project__image"
-                src="images/projects/excel-spreadsheet-homepage.png"
-                alt=""
-                width="88"
-                height="88"
-                loading="lazy"
-                decoding="async"
-              />
+              <img class="project__image" src="images/projects/excel-spreadsheet-homepage.png" alt="" width="88" height="88" loading="lazy" decoding="async" />
               <h3 class="project__title--spreadsheet">Spreadsheet+</h3>
             </div>
             <div class="project__body">
-            <p class="project__description">
-              Spreadsheet app inspired by Excel, featuring formulas, dependency graphs, and XML
-              save/load support. Built with a C# ASP.NET Core backend and React + TypeScript
-              frontend for a fast, interactive browser experience.
-            </p>
-            <ul class="project__stack">
-              <li class="project__stack-item">C#</li>
-              <li class="project__stack-item">.NET</li>
-              <li class="project__stack-item">React</li>
-              <li class="project__stack-item">TypeScript</li>
-              <li class="project__stack-item project__stack-item--excel-docker">Docker</li>
-            </ul>
-            <div class="project__links">
-            <a
-            href="https://excel-clone-eosin.vercel.app/"
-            aria-label="Spreadsheet+ live demo"
-            class="link link--icon"
-            target="_blank"
-            rel="noopener noreferrer"
-            >
-            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
-            <path
-            d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6 M15 3h6v6 M10 14L21 3"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            />
-            </svg>
-            </a>
-            <a
-            href="https://github.com/JoshElieson/Excel-Clone"
-            aria-label="Spreadsheet+ source code"
-            class="link link--icon"
-            target="_blank"
-            rel="noopener noreferrer"
-            >
-            <svg class="github-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
-            <path
-            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            />
-            </svg>
-            </a>
-            <div class="project__notes">
-              <button
-                type="button"
-                class="project__notes-trigger link link--icon"
-                aria-label="Open Spreadsheet+ technical notes"
-                aria-expanded="false"
-                aria-controls="notes-excel"
-              >
-                <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
-                  <path
-                    d="M7 3h7l5 5v13H7z M14 3v6h6 M10 12h2 M14 12h2 M10 16h2 M14 16h2"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </button>
-              <div id="notes-excel" class="project__notes-popup" role="dialog" aria-modal="false" hidden>
-                <p class="project__notes-title">Technical notes</p>
-                <ul class="project__notes-list">
-                  <li>C# .NET backend evaluates formulas with dependency graph recalculation logic.</li>
-                  <li>React + TypeScript frontend renders a fast grid with editable cell interactions.</li>
-                  <li>XML save/load flow serializes workbook state for portable persistence.</li>
-                </ul>
+              <p class="project__description">Spreadsheet app inspired by Excel, featuring formulas, dependency graphs, and XML save/load support with a C# backend and React frontend.</p>
+              <ul class="project__stack">
+                <li class="project__stack-item">C#</li><li class="project__stack-item">.NET</li><li class="project__stack-item">React</li><li class="project__stack-item">TypeScript</li>
+              </ul>
+              <div class="project__links">
+                <a href="https://excel-clone-eosin.vercel.app/" aria-label="Spreadsheet+ live demo" class="link link--icon" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6 M15 3h6v6 M10 14L21 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+                <a href="https://github.com/JoshElieson/Excel-Clone" aria-label="Spreadsheet+ source code" class="link link--icon" target="_blank" rel="noopener noreferrer"><svg class="github-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
               </div>
             </div>
-          </div>
-            </div>
           </article>
-
-          
-
-          
 
           <article class="project">
             <div class="project__header">
-              <img
-                class="project__image"
-                src="images/projects/webguard-homepage.png"
-                alt=""
-                width="88"
-                height="88"
-                loading="lazy"
-                decoding="async"
-              />
+              <img class="project__image" src="images/projects/webguard-homepage.png" alt="" width="88" height="88" loading="lazy" decoding="async" />
               <h3>WebGuard</h3>
             </div>
             <div class="project__body">
-            <p class="project__description">
-              WebGuard is a Chrome Extension built with Manifest V3 that helps users understand the
-              privacy and security behavior of the websites they visit. It scans the current tab and
-              surfaces signals like network activity, cookies, storage usage, permissions, etc.
-            </p>
-            <ul class="project__stack">
-              <li class="project__stack-item">Web privacy</li>
-              <li class="project__stack-item">TypeScript</li>
-              <li class="project__stack-item">Python</li>
-              <li class="project__stack-item">CSS</li>
-            </ul>
-            <div class="project__links">
-            <a
-            href="https://chromewebstore.google.com/detail/webguard/cnfhbbjledgbonmpobkhccddjdfkmken"
-            aria-label="WebGuard on Chrome Web Store"
-            class="link link--icon"
-            target="_blank"
-            rel="noopener noreferrer"
-            >
-            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
-            <path
-            d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6 M15 3h6v6 M10 14L21 3"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            />
-            </svg>
-            </a>
-            <a
-            href="https://github.com/JoshElieson/Security-extension"
-            aria-label="WebGuard source code"
-            class="link link--icon"
-            target="_blank"
-            rel="noopener noreferrer"
-            >
-            <svg class="github-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
-            <path
-            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            />
-            </svg>
-            </a>
-          </div>
+              <p class="project__description">Chrome extension that scans websites and surfaces privacy and security signals including network activity, cookies, storage, and permissions.</p>
+              <ul class="project__stack">
+                <li class="project__stack-item">Web Privacy</li><li class="project__stack-item">TypeScript</li><li class="project__stack-item">Python</li><li class="project__stack-item">CSS</li>
+              </ul>
+              <div class="project__links">
+                <a href="https://chromewebstore.google.com/detail/webguard/cnfhbbjledgbonmpobkhccddjdfkmken" aria-label="WebGuard on Chrome Web Store" class="link link--icon" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6 M15 3h6v6 M10 14L21 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+                <a href="https://github.com/JoshElieson/Security-extension" aria-label="WebGuard source code" class="link link--icon" target="_blank" rel="noopener noreferrer"><svg class="github-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+              </div>
             </div>
           </article>
-
-                  </div>
-
-        
-      </section>
-
-      <section id="experience" class="section experience">
-        <h2 class="section__title">Experience</h2>
-        <ol class="experience-list" aria-label="Work experience">
-          <li class="experience-item">
-            <a
-              class="experience-item__link"
-              href="https://www.northropgrumman.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <p class="experience-item__range">Aug 2024 - Aug 2025</p>
-              <div class="experience-item__content">
-                <h3 class="experience-item__title">Software Engineering Co-op - Northrop Grumman</h3>
-                <p class="experience-item__location">Cloud Services and Integration - Roy, UT</p>
-                <ul class="experience-item__bullets">
-                  <li>
-                    Developed 10+ automated validation scripts in Jython and Groovy to scan thousands of UML models
-                    for security and deployment errors, reducing manual review time by 60%.
-                  </li>
-                  <li>
-                    Refactored and optimized a complex CI/CD pipeline, reducing deployment time from 8+ hours to under
-                    10 minutes for 200+ internal projects.
-                  </li>
-                  <li>
-                    Authored onboarding documentation adopted across teams, lowering environment-related support
-                    requests and reducing ramp-up time by 20%.
-                  </li>
-                </ul>
-                <ul class="experience-item__tags" aria-label="Technologies used">
-                  <li>Jython</li>
-                  <li>Groovy</li>
-                  <li>C++</li>
-                  <li>Cameo</li>
-                  <li>Git</li>
-                  <li>Agile</li>
-                </ul>
-              </div>
-            </a>
-          </li>
-
-          <li class="experience-item">
-            <a
-              class="experience-item__link"
-              href="https://www.northropgrumman.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <p class="experience-item__range">May 2024 - Aug 2024</p>
-              <div class="experience-item__content">
-                <h3 class="experience-item__title">Software Engineering Intern - Northrop Grumman</h3>
-                <p class="experience-item__location">Physical Security - Roy, UT</p>
-                <ul class="experience-item__bullets">
-                  <li>
-                    Implemented backend linear algebra algorithms in C to convert live LiDAR packets into structured
-                    point cloud files, improving processing speed by 3x.
-                  </li>
-                  <li>
-                    Built React features for interactive 3D point cloud rendering, enabling five-plus internal teams to
-                    analyze sensor data in a web app.
-                  </li>
-                </ul>
-                <ul class="experience-item__tags" aria-label="Technologies used">
-                  <li>TypeScript</li>
-                  <li>React</li>
-                  <li>JavaScript</li>
-                  <li>C</li>
-                  <li>Node.js</li>
-                  <li>REST APIs</li>
-                </ul>
-              </div>
-            </a>
-          </li>
-
-          <li class="experience-item">
-            <a
-              class="experience-item__link"
-              href="https://www.utah.edu/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <p class="experience-item__range">Aug 2023 - May 2024</p>
-              <div class="experience-item__content">
-                <h3 class="experience-item__title">Teaching Assistant - University of Utah</h3>
-                <p class="experience-item__location">Physics for Scientists and Engineers - Salt Lake City, UT</p>
-                <ul class="experience-item__bullets">
-                  <li>
-                    Led bi-weekly lab sessions and office hours for 100+ students, providing individualized support
-                    and improving engagement with core physics concepts.
-                  </li>
-                </ul>
-                <ul class="experience-item__tags" aria-label="Focus areas">
-                  <li>Teaching</li>
-                  <li>Physics</li>
-                </ul>
-              </div>
-            </a>
-          </li>
-        </ol>
-      </section>
-
-      <section class="section skills" id="skills">
-        <h2 class="section__title">Skills</h2>
-        <ul class="skills__list">
-          <li class="skills__list-item btn btn--plain">Python</li>
-          <li class="skills__list-item btn btn--plain">Java</li>
-          <li class="skills__list-item btn btn--plain">C++</li>
-          <li class="skills__list-item btn btn--plain">C#</li>
-          <li class="skills__list-item btn btn--plain">.NET</li>
-          <li class="skills__list-item btn btn--plain">JavaScript</li>
-          <li class="skills__list-item btn btn--plain">TypeScript</li>
-          <li class="skills__list-item btn btn--plain">HTML</li>
-          <li class="skills__list-item btn btn--plain">AI</li>
-          <li class="skills__list-item btn btn--plain">API</li>
-          <li class="skills__list-item btn btn--plain">React.js</li>
-          <li class="skills__list-item btn btn--plain">Next.js</li>
-          <li class="skills__list-item btn btn--plain">Node.js</li>
-          <li class="skills__list-item btn btn--plain">Docker</li>
-          <li class="skills__list-item btn btn--plain">AWS</li>
-          <li class="skills__list-item btn btn--plain">Git</li>
-          <li class="skills__list-item btn btn--plain">REST APIs</li>
-          <li class="skills__list-item btn btn--plain">OpenAI</li>
-        </ul>
+        </div>
       </section>
 
       <section class="section contact" id="contact">
@@ -959,7 +667,5 @@
         and hosting via Vercel.
       </p>
     </footer>
-
-    <div id="theme-veil" class="theme-veil" aria-hidden="true"></div>
   </body>
 </html>

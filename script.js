@@ -1,12 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const body = document.body;
-  const btnTheme = document.querySelector('.btn-theme');
   const btnHamburger = document.querySelector('.nav__hamburger');
   const headerLogo =
     document.querySelector('.header-logo') || document.querySelector('.header > a[href="#top"]');
-  const themeVeil = document.getElementById('theme-veil');
 
-  const CONFETTI_COLORS = ['#2e8b57', '#3fa46a', '#6ee7b7', '#6d28d9', '#a78bfa', '#c4b5fd'];
+  const CONFETTI_COLORS = ['#315f9b', '#426fa8', '#8ba9ce', '#8a7052', '#c5ad8c', '#e3d6c3'];
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const shootConfetti = (originX, originY) => {
@@ -98,46 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (aboutName) {
     aboutName.addEventListener('click', (event) => {
       onConfettiClick(event, { pop: false });
-    });
-  }
-
-  const THEME_VEIL_MS = 420;
-  const themeBg = {
-    dark: '#090b0f',
-    light: '#f6f4ef',
-  };
-
-  const setTheme = (theme, { persist = true } = {}) => {
-    if (!themeVeil || body.classList.contains('is-theme-switching')) return;
-
-    body.classList.add('is-theme-switching');
-    themeVeil.style.backgroundColor = themeBg[theme];
-
-    /* Cover immediately so card/button backgrounds never tween in view */
-    themeVeil.classList.add('is-active', 'is-instant');
-    body.classList.add('theme-snap');
-    body.classList.remove('light', 'dark');
-    body.classList.add(theme);
-    if (persist) localStorage.setItem('portfolio-theme', theme);
-
-    requestAnimationFrame(() => {
-      themeVeil.classList.remove('is-instant');
-
-      requestAnimationFrame(() => {
-        themeVeil.classList.remove('is-active');
-
-        window.setTimeout(() => {
-          body.classList.remove('theme-snap', 'is-theme-switching');
-        }, THEME_VEIL_MS);
-      });
-    });
-  };
-
-  const isLight = () => body.classList.contains('light');
-
-  if (btnTheme) {
-    btnTheme.addEventListener('click', () => {
-      setTheme(isLight() ? 'dark' : 'light');
     });
   }
 
@@ -287,92 +244,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  const initProjectsShowMore = () => {
-    const projectsGrid = document.getElementById('projects-grid');
-    const showMoreBtn = document.querySelector('.projects__show-more');
-    const showLessBtn = document.querySelector('.projects__show-less');
-    const seeMoreBtn = document.querySelector('.projects__see-more');
-    const showMoreWrap = document.querySelector('.projects__show-more-wrap');
-    const projectsMoreGrid = document.getElementById('projects-more-grid');
-    const githubUrl = 'https://github.com/JoshElieson';
-
-    if (!projectsGrid || !showMoreBtn || !showLessBtn || !seeMoreBtn || !showMoreWrap || !projectsMoreGrid) {
-      return;
-    }
-
-    let isExpanded = false;
-    let compactPreviewProject = null;
-
-    const getProjectsGridColumnCount = () => {
-      const template = getComputedStyle(projectsGrid).gridTemplateColumns;
-      return template.split(' ').filter((track) => track && track !== 'none').length;
-    };
-
-    const usesCompactProjectsLayout = () => getProjectsGridColumnCount() < 3;
-
-    const restoreCompactPreviewProject = () => {
-      if (!compactPreviewProject || compactPreviewProject.parentElement !== projectsGrid) {
-        return;
-      }
-
-      projectsMoreGrid.insertBefore(compactPreviewProject, projectsMoreGrid.firstChild);
-      compactPreviewProject = null;
-    };
-
-    const syncCompactProjectsLayout = () => {
-      if (!usesCompactProjectsLayout()) {
-        restoreCompactPreviewProject();
-        return;
-      }
-
-      if (compactPreviewProject && compactPreviewProject.parentElement === projectsGrid) {
-        return;
-      }
-
-      const nextPreviewProject = projectsMoreGrid.querySelector('.project');
-      if (!nextPreviewProject) {
-        return;
-      }
-
-      projectsGrid.appendChild(nextPreviewProject);
-      compactPreviewProject = nextPreviewProject;
-    };
-
-    showMoreBtn.addEventListener('click', () => {
-      syncCompactProjectsLayout();
-      isExpanded = true;
-      projectsMoreGrid.classList.add('is-expanded');
-      showMoreBtn.setAttribute('aria-expanded', 'true');
-      projectsMoreGrid.after(showMoreWrap);
-      showMoreWrap.classList.add('is-repositioned');
-    });
-
-    showLessBtn.addEventListener('click', () => {
-      isExpanded = false;
-      projectsMoreGrid.classList.remove('is-expanded');
-      showMoreBtn.setAttribute('aria-expanded', 'false');
-      projectsGrid.after(showMoreWrap);
-      showMoreWrap.classList.remove('is-repositioned');
-      syncCompactProjectsLayout();
-    });
-
-    seeMoreBtn.addEventListener('click', () => {
-      window.open(githubUrl, '_blank', 'noopener,noreferrer');
-    });
-
-    const scheduleCompactProjectsLayoutSync = () => {
-      window.requestAnimationFrame(syncCompactProjectsLayout);
-    };
-
-    if (typeof ResizeObserver !== 'undefined') {
-      const projectsLayoutObserver = new ResizeObserver(scheduleCompactProjectsLayoutSync);
-      projectsLayoutObserver.observe(projectsGrid);
-    }
-
-    window.addEventListener('resize', scheduleCompactProjectsLayoutSync);
-    scheduleCompactProjectsLayoutSync();
-  };
-
   const initCaseStudyLightbox = () => {
     const lightbox = document.getElementById('image-lightbox');
     if (!lightbox) return;
@@ -420,6 +291,77 @@ document.addEventListener('DOMContentLoaded', () => {
       lightboxImg.alt = '';
       lightboxCaption.textContent = '';
     });
+  };
+
+  const initProjectsShowMore = () => {
+    const projectsGrid = document.getElementById('projects-grid');
+    const moreGrid = document.getElementById('projects-more-grid');
+    const showMore = document.querySelector('.projects__show-more');
+    const showLess = document.querySelector('.projects__show-less');
+    const controls = document.querySelector('.projects__show-more-wrap');
+    if (!projectsGrid || !moreGrid || !showMore || !showLess || !controls) return;
+
+    let isAnimating = false;
+
+    const animateGrid = (expanded) => {
+      const height = moreGrid.scrollHeight;
+      return moreGrid.animate(
+        expanded
+          ? [
+              { height: '0px', opacity: 0, transform: 'translateY(-10px)' },
+              { height: `${height}px`, opacity: 1, transform: 'translateY(0)' },
+            ]
+          : [
+              { height: `${height}px`, opacity: 1, transform: 'translateY(0)' },
+              { height: '0px', opacity: 0, transform: 'translateY(-10px)' },
+            ],
+        {
+          duration: 320,
+          easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+        }
+      ).finished;
+    };
+
+    const setExpanded = async (expanded) => {
+      if (isAnimating) return;
+      isAnimating = true;
+      showMore.disabled = true;
+      showLess.disabled = true;
+
+      if (expanded) {
+        moreGrid.hidden = false;
+        moreGrid.after(controls);
+        showMore.hidden = true;
+        showLess.hidden = false;
+        if (!prefersReducedMotion) {
+          moreGrid.style.overflow = 'hidden';
+          await animateGrid(true);
+          moreGrid.style.removeProperty('overflow');
+        }
+      } else {
+        if (!prefersReducedMotion) {
+          moreGrid.style.overflow = 'hidden';
+          await animateGrid(false);
+          moreGrid.style.removeProperty('overflow');
+        }
+        projectsGrid.after(controls);
+        moreGrid.hidden = true;
+        showMore.hidden = false;
+        showLess.hidden = true;
+        projectsGrid.scrollIntoView({
+          behavior: prefersReducedMotion ? 'auto' : 'smooth',
+          block: 'start',
+        });
+      }
+      showMore.setAttribute('aria-expanded', String(expanded));
+      showLess.setAttribute('aria-expanded', String(expanded));
+      showMore.disabled = false;
+      showLess.disabled = false;
+      isAnimating = false;
+    };
+
+    showMore.addEventListener('click', () => setExpanded(true));
+    showLess.addEventListener('click', () => setExpanded(false));
   };
 
   initCaseStudyLightbox();

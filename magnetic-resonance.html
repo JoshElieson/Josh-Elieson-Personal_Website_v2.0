@@ -19,19 +19,7 @@
     <script src="script.js" defer></script>
     <title>Magnetic Resonance Detection System — Josh Elieson</title>
   </head>
-  <body id="top">
-    <script>
-      (function () {
-        var saved = localStorage.getItem("portfolio-theme");
-        var theme;
-        if (saved === "light" || saved === "dark") {
-          theme = saved;
-        } else {
-          theme = "light";
-        }
-        document.body.className = theme;
-      })();
-    </script>
+  <body id="top" class="light">
     <header class="header center">
       <a href="index.html" class="header-logo" aria-label="Home">
         <h3>JE.</h3>
@@ -40,59 +28,18 @@
       <nav class="nav center" aria-label="Main">
         <ul class="nav__list center">
           <li class="nav__list-item">
-            <a class="link link--nav" href="index.html#projects">Projects</a>
-          </li>
-          <li class="nav__list-item">
             <a class="link link--nav" href="index.html#experience">Experience</a>
           </li>
           <li class="nav__list-item">
-            <a class="link link--nav" href="index.html#skills">Skills</a>
+            <a class="link link--nav" href="index.html#projects">Projects</a>
           </li>
           <li class="nav__list-item">
             <a class="link link--nav" href="index.html#contact">Contact</a>
           </li>
+          <li class="nav__list-item">
+            <a class="link link--nav" href="JoshElieson_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+          </li>
         </ul>
-
-        <button type="button" aria-label="toggle theme" class="btn btn--icon btn-theme">
-          <svg
-            class="theme-icon theme-icon--moon"
-            viewBox="0 0 24 24"
-            width="24"
-            height="24"
-            aria-hidden="true"
-          >
-            <path
-              d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-          <svg
-            class="theme-icon theme-icon--sun"
-            viewBox="0 0 24 24"
-            width="24"
-            height="24"
-            aria-hidden="true"
-          >
-            <circle
-              cx="12"
-              cy="12"
-              r="4"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            />
-            <path
-              d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-            />
-          </svg>
-        </button>
 
         <button
           type="button"
@@ -220,8 +167,6 @@
 
       </article>
     </main>
-
-    <div id="theme-veil" class="theme-veil" aria-hidden="true"></div>
 
     <dialog id="image-lightbox" class="image-lightbox" aria-labelledby="image-lightbox-caption">
       <button type="button" class="image-lightbox__close btn btn--icon" aria-label="Close image">
