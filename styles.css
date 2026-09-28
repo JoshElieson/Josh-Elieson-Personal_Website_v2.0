@@ -988,11 +988,6 @@ body.light .project__header-link:focus-visible h3 {
   font-size: calc(1.05rem * 1.69);
 }
 
-.project__header h3.project__title--spreadsheet,
-.project__header-link h3.project__title--spreadsheet {
-  font-size: calc(1.05rem * 1.15);
-}
-
 .project__body {
   margin-top: 1.15em;
 }
@@ -1360,18 +1355,9 @@ body.light .project__icon-hint-popup {
     font-size: calc(0.9rem * 1.69);
   }
 
-  .project__header h3.project__title--spreadsheet,
-  .project__header-link h3.project__title--spreadsheet {
-    font-size: calc(0.9rem * 1.15);
-  }
-
   .project__stack {
     justify-content: center;
     margin-top: 0.8em;
-  }
-
-  .project__stack-item--excel-docker {
-    order: 4;
   }
 
   .project__image {
