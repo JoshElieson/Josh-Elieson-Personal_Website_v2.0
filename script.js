@@ -303,6 +303,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let isAnimating = false;
 
+    // In a two-column layout, 3 + 3 leaves a lone card in each block, so
+    // borrow the first "more" card to show 4 up front and 2 behind show more.
+    const borrowedCard = moreGrid.querySelector('.project');
+    const syncCardSplit = () => {
+      if (!borrowedCard) return;
+      const columns = getComputedStyle(projectsGrid)
+        .gridTemplateColumns.split(' ')
+        .filter(Boolean).length;
+      const shouldBorrow = columns === 2;
+      const isBorrowed = borrowedCard.parentElement === projectsGrid;
+      if (shouldBorrow && !isBorrowed) {
+        projectsGrid.append(borrowedCard);
+      } else if (!shouldBorrow && isBorrowed) {
+        moreGrid.prepend(borrowedCard);
+      }
+    };
+    syncCardSplit();
+    new ResizeObserver(syncCardSplit).observe(projectsGrid);
+
     const animateGrid = (expanded) => {
       const height = moreGrid.scrollHeight;
       return moreGrid.animate(
