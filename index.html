@@ -371,6 +371,55 @@
 
           <article class="project">
             <div class="project__header">
+              <img class="project__image" src="images/PyMC img" alt="" width="88" height="88" loading="lazy" decoding="async" />
+              <h3>PyMC Hackathon 2026: DaimonAI Skill</h3>
+            </div>
+            <div class="project__body">
+              <p class="project__description">Reusable AI skill that upgrades Daimon's slide generation, turning a template and user input into structured decks. Slides are reviewed and edited in Discord and Slack, then published as .pptx or .pdf.</p>
+              <ul class="project__stack">
+                <li class="project__stack-item">AI</li><li class="project__stack-item">Claude</li><li class="project__stack-item">Agent Skills</li><li class="project__stack-item">Hackathon</li>
+              </ul>
+              <div class="project__links">
+                <div class="project__icon-hint">
+                  <a href="documents/pymc-hackathon-slides.pdf" aria-label="AI Slide Expert hackathon presentation" class="link link--icon" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M3 4h18 M4 4v11h16V4 M12 15v4 M8 21l4-2 4 2 M8 11l3-3 2 2 3-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+                  <span class="project__icon-hint-popup" role="tooltip">View Slides</span>
+                </div>
+                <a href="https://github.com/JoshElieson/PyMC" aria-label="AI Slide Expert source code" class="link link--icon" target="_blank" rel="noopener noreferrer"><svg class="github-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project__header">
+              <img class="project__image" src="images/projects/forge-homepage.png" alt="" width="88" height="88" loading="lazy" decoding="async" />
+              <h3 class="project__title--forge">FORGE</h3>
+            </div>
+            <div class="project__body">
+              <p class="project__description">Desktop prompt-engineering IDE with multi-model chat, project file context, Round Table orchestration, and streaming model metrics.</p>
+              <p class="project__description">  I built FORGE because I wasn't satisfied with the AI development tools out there, and it has since become my personal AI IDE for day-to-day work. I figured others might find it useful too.</p>
+              <ul class="project__stack">
+                <li class="project__stack-item">Tauri</li><li class="project__stack-item">React</li><li class="project__stack-item">TypeScript</li><li class="project__stack-item">AI</li><li class="project__stack-item">API</li>
+              </ul>
+              <div class="project__links">
+                <a href="https://pe-web-ebon.vercel.app/" aria-label="FORGE live demo" class="link link--icon" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6 M15 3h6v6 M10 14L21 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+                <a href="https://github.com/JoshElieson/PROMPT-ENG-v2.0" aria-label="FORGE source code" class="link link--icon" target="_blank" rel="noopener noreferrer"><svg class="github-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="projects__show-more-wrap">
+          <button type="button" class="projects__show-more text-action" aria-expanded="false" aria-controls="projects-more-grid">
+            Show more
+          </button>
+          <button type="button" class="projects__show-less text-action" aria-expanded="false" aria-controls="projects-more-grid" hidden>
+            Show less
+          </button>
+        </div>
+
+        <div class="projects__grid projects__grid--more" id="projects-more-grid" hidden>
+          <article class="project">
+            <div class="project__header">
               <img class="project__image" src="images/projects/financeimage.png" alt="" width="88" height="88" loading="lazy" decoding="async" />
               <h3>Financial Market Forecasting &amp; Backtesting</h3>
             </div>
@@ -433,55 +482,6 @@
                     </ul>
                   </div>
                 </div>
-              </div>
-            </div>
-          </article>
-
-          <article class="project">
-            <div class="project__header">
-              <img class="project__image" src="images/projects/forge-homepage.png" alt="" width="88" height="88" loading="lazy" decoding="async" />
-              <h3 class="project__title--forge">FORGE</h3>
-            </div>
-            <div class="project__body">
-              <p class="project__description">Desktop prompt-engineering IDE with multi-model chat, project file context, Round Table orchestration, and streaming model metrics.</p>
-              <p class="project__description">  I built FORGE because I wasn't satisfied with the AI development tools out there, and it has since become my personal AI IDE for day-to-day work. I figured others might find it useful too.</p>
-              <ul class="project__stack">
-                <li class="project__stack-item">Tauri</li><li class="project__stack-item">React</li><li class="project__stack-item">TypeScript</li><li class="project__stack-item">AI</li><li class="project__stack-item">API</li>
-              </ul>
-              <div class="project__links">
-                <a href="https://pe-web-ebon.vercel.app/" aria-label="FORGE live demo" class="link link--icon" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6 M15 3h6v6 M10 14L21 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
-                <a href="https://github.com/JoshElieson/PROMPT-ENG-v2.0" aria-label="FORGE source code" class="link link--icon" target="_blank" rel="noopener noreferrer"><svg class="github-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <div class="projects__show-more-wrap">
-          <button type="button" class="projects__show-more text-action" aria-expanded="false" aria-controls="projects-more-grid">
-            Show more
-          </button>
-          <button type="button" class="projects__show-less text-action" aria-expanded="false" aria-controls="projects-more-grid" hidden>
-            Show less
-          </button>
-        </div>
-
-        <div class="projects__grid projects__grid--more" id="projects-more-grid" hidden>
-          <article class="project">
-            <div class="project__header">
-              <img class="project__image" src="images/projects/daimon-slide-expert.png" alt="" width="88" height="88" loading="lazy" decoding="async" />
-              <h3>PyMC Hackathon 2026: DaimonAI Skill</h3>
-            </div>
-            <div class="project__body">
-              <p class="project__description">Reusable AI skill that upgrades Daimon's slide generation, turning a template and user input into structured decks. Slides are reviewed and edited in Discord and Slack, then published as .pptx or .pdf.</p>
-              <ul class="project__stack">
-                <li class="project__stack-item">AI</li><li class="project__stack-item">Claude</li><li class="project__stack-item">Agent Skills</li><li class="project__stack-item">Hackathon</li>
-              </ul>
-              <div class="project__links">
-                <div class="project__icon-hint">
-                  <a href="documents/pymc-hackathon-slides.pdf" aria-label="AI Slide Expert hackathon presentation" class="link link--icon" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M3 4h18 M4 4v11h16V4 M12 15v4 M8 21l4-2 4 2 M8 11l3-3 2 2 3-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
-                  <span class="project__icon-hint-popup" role="tooltip">View Slides</span>
-                </div>
-                <a href="https://github.com/JoshElieson/PyMC" aria-label="AI Slide Expert source code" class="link link--icon" target="_blank" rel="noopener noreferrer"><svg class="github-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
               </div>
             </div>
           </article>
