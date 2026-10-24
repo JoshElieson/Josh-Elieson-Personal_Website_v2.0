@@ -119,8 +119,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const iconLinks = project.querySelectorAll('.project__links a.link--icon');
       if (!header || !iconLinks.length) return;
 
+      const preferGithub = project.dataset.headerLink === 'github';
       const primaryAnchor =
-        [...iconLinks].find((anchor) => !anchor.querySelector('.github-icon')) ||
+        [...iconLinks].find((anchor) => !!anchor.querySelector('.github-icon') === preferGithub) ||
         iconLinks[0];
       const url = primaryAnchor.href;
       if (!url) return;
